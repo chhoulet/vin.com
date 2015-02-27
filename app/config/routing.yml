@@ -1,0 +1,8 @@
+vin_back_office:
+    resource: "@VinBackOfficeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+vin_front_office:
+     resource: "@VinFrontOfficeBundle/Resources/config/routing.yml"
+     prefix:   /
+

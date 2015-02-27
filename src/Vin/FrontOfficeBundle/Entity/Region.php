@@ -1,0 +1,171 @@
+<?php
+
+namespace Vin\FrontOfficeBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Region
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="VinFrontOfficeBundle\Entity\RegionRepository")
+ */
+class Region
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nameRegion", type="string", length=255)
+     */
+    private $nameRegion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="appellation", type="string", length=255)
+     */
+    private $appellation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="domaine", type="string", length=255)
+     */
+    private $domaine;
+
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="Vin\FrontOfficeBundle\Entity\Vin", mappedBy="region")
+     */
+    private $vin;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nameRegion
+     *
+     * @param string $nameRegion
+     * @return Region
+     */
+    public function setNameRegion($nameRegion)
+    {
+        $this->nameRegion = $nameRegion;
+
+        return $this;
+    }
+
+    /**
+     * Get nameRegion
+     *
+     * @return string 
+     */
+    public function getNameRegion()
+    {
+        return $this->nameRegion;
+    }
+
+    /**
+     * Set appellation
+     *
+     * @param string $appellation
+     * @return Region
+     */
+    public function setAppellation($appellation)
+    {
+        $this->appellation = $appellation;
+
+        return $this;
+    }
+
+    /**
+     * Get appellation
+     *
+     * @return string 
+     */
+    public function getAppellation()
+    {
+        return $this->appellation;
+    }
+
+    /**
+     * Set domaine
+     *
+     * @param string $domaine
+     * @return Region
+     */
+    public function setDomaine($domaine)
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return string 
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->vin = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add vin
+     *
+     * @param \Vin\FrontOfficeBundle\Vin $vin
+     * @return Region
+     */
+    public function addVin(\Vin\FrontOfficeBundle\Vin $vin)
+    {
+        $this->vin[] = $vin;
+
+        return $this;
+    }
+
+    /**
+     * Remove vin
+     *
+     * @param \Vin\FrontOfficeBundle\Vin $vin
+     */
+    public function removeVin(\Vin\FrontOfficeBundle\Vin $vin)
+    {
+        $this->vin->removeElement($vin);
+    }
+
+    /**
+     * Get vin
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getVin()
+    {
+        return $this->vin;
+    }
+}
