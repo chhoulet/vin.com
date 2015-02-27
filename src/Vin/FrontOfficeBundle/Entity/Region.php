@@ -45,6 +45,14 @@ class Region
     /**
      * @var string
      *
+     * @ORM\Column(name="descriptionRegion", type="string", length=255)
+     */
+    private $descriptionRegion;
+
+
+    /**
+     * @var string
+     *
      * @ORM\OneToMany(targetEntity="Vin\FrontOfficeBundle\Entity\Vin", mappedBy="region")
      */
     private $vin;
@@ -167,5 +175,28 @@ class Region
     public function getVin()
     {
         return $this->vin;
+    }
+
+    /**
+     * Set descriptionRegion
+     *
+     * @param string $descriptionRegion
+     * @return Region
+     */
+    public function setDescriptionRegion($descriptionRegion)
+    {
+        $this->descriptionRegion = $descriptionRegion;
+
+        return $this;
+    }
+
+    /**
+     * Get descriptionRegion
+     *
+     * @return string 
+     */
+    public function getDescriptionRegion()
+    {
+        return $this->descriptionRegion;
     }
 }

@@ -8,6 +8,9 @@ class HomePageController extends Controller
 {
     public function homePageAction()
     {
-        return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig');
+    	$em = $this -> getDoctrine()->getManager();
+    	$showRegions = $em ->getRepository('VinFrontOfficeBundle:Region')->findAll();
+
+        return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig', array('showRegions'=> $showRegions));
     }
 }
