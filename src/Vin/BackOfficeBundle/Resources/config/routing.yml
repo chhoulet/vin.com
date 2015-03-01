@@ -15,3 +15,7 @@ vin_back_office_suppression:
     path:     /suppVin/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminVin:suppVin}
 
+vin_back_office_showVin:
+    path:     /showVin 
+    defaults: { _controller:VinBackOfficeBundle:AdminVin:showVin}
+
