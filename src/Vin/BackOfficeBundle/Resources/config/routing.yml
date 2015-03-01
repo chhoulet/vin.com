@@ -1,3 +1,9 @@
 vin_back_office_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: VinBackOfficeBundle:Default:index }
+    path:     /accueilBackOffice
+    defaults: { _controller: VinBackOfficeBundle:Homepage:homepage }
+
+#Administration du Front-office:
+vin_back_office_creationVin:
+    path: /creationVin
+    defaults: { _controller: VinBackOfficeBundle:AdminVin:creationVin}
+
