@@ -11,3 +11,7 @@ vin_back_office_editionVin:
     path:     /editionVin/{id} 
     defaults: { _controller:VinBackOfficeBundle:AdminVin:editionVin}
 
+vin_back_office_suppression:
+    path:     /suppVin/{id}
+    defaults: { _controller:VinBackOfficeBundle:AdminVin:suppVin}
+
