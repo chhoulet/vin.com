@@ -41,3 +41,7 @@ vin_back_office_suppressionRegion:
 vin_back_office_showAppellation:
     path:     /Appellation/show
     defaults: { _controller:VinBackOfficeBundle:AdminAppellation:showAppellation}
+
+vin_back_office_creationAppellation:
+    path:     /Appellation/creation 
+    defaults: { _controller:VinBackOfficeBundle:AdminAppellation:creationAppellation}
