@@ -4,27 +4,36 @@ vin_back_office_homepage:
 
 #Administration du Front-office: gestion Vin
 vin_back_office_showVin:
-    path:     /showVin 
+    path:     /Vin/show 
     defaults: { _controller:VinBackOfficeBundle:AdminVin:showVin}
 
 vin_back_office_creationVin:
-    path:     /creationVin
+    path:     /Vin/creation
     defaults: { _controller: VinBackOfficeBundle:AdminVin:creationVin}
 
 vin_back_office_editionVin:
-    path:     /editionVin/{id} 
+    path:     /Vin/edition/{id} 
     defaults: { _controller:VinBackOfficeBundle:AdminVin:editionVin}
 
 vin_back_office_suppression:
-    path:     /suppVin/{id}
+    path:     /Vin/supp/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminVin:suppVin}
 
 
 #Administration du Front-office: gestion Region
 vin_back_office_showRegion:
-    path:     /showRegion
+    path:     /Region/show
     defaults: { _controller:VinBackOfficeBundle:AdminRegion:showRegion}
     
 vin_back_office_creationRegion:
-    path:     /creationRegion 
+    path:     /Region/creation 
     defaults: { _controller:VinBackOfficeBundle:AdminRegion:creationRegion}
+
+vin_back_office_editionRegion:
+    path:     /Region/edition/{id}
+    defaults: { _controller:VinBackOfficeBundle:AdminRegion:editionRegion}
+
+vin_back_office_suppressionRegion:
+    path:     /Region/Suppression/{id}
+    defaults: { _controller:VinBackOfficeBundle:AdminRegion:suppRegion}
+

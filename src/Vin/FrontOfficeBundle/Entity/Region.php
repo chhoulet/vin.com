@@ -50,6 +50,14 @@ class Region
      */
     private $vin;
 
+     /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="Vin\FrontOfficeBundle\Entity\Appellation", mappedBy="region")
+     */
+    private $appellation;
+
+
 
     /**
      * Get id
@@ -173,5 +181,38 @@ class Region
     public function __toString()
     {
         return $this ->nameRegion;
+    }
+
+    /**
+     * Add appellation
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Appellation $appellation
+     * @return Region
+     */
+    public function addAppellation(\Vin\FrontOfficeBundle\Entity\Appellation $appellation)
+    {
+        $this->appellation[] = $appellation;
+
+        return $this;
+    }
+
+    /**
+     * Remove appellation
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Appellation $appellation
+     */
+    public function removeAppellation(\Vin\FrontOfficeBundle\Entity\Appellation $appellation)
+    {
+        $this->appellation->removeElement($appellation);
+    }
+
+    /**
+     * Get appellation
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAppellation()
+    {
+        return $this->appellation;
     }
 }
