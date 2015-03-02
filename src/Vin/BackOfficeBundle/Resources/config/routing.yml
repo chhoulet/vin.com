@@ -45,3 +45,7 @@ vin_back_office_showAppellation:
 vin_back_office_creationAppellation:
     path:     /Appellation/creation 
     defaults: { _controller:VinBackOfficeBundle:AdminAppellation:creationAppellation}
+
+vin_back_office_suppressionAppellation:
+    path:     /Appellation/suppression/{id}
+    defaults: { _controller:VinBackOfficeBundle:AdminAppellation:suppAppellation}
