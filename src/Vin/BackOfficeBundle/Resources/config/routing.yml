@@ -37,3 +37,7 @@ vin_back_office_suppressionRegion:
     path:     /Region/Suppression/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminRegion:suppRegion}
 
+#Administration du Front-office:gestion Appellation
+vin_back_office_showAppellation:
+    path:     /Appellation/show
+    defaults: { _controller:VinBackOfficeBundle:AdminAppellation:showAppellation}
