@@ -19,3 +19,7 @@ vin_back_office_showVin:
     path:     /showVin 
     defaults: { _controller:VinBackOfficeBundle:AdminVin:showVin}
 
+#Administration du Front-office: gestion Region
+vin_back_office_creationRegion:
+    path:     /creationRegion 
+    defaults: { _controller:VinBackOfficeBundle:AdminRegion:creationRegion}
