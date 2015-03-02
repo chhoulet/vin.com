@@ -106,6 +106,14 @@ class Vin
      */
     private $region;
 
+     /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Vin\FrontOfficeBundle\Entity\Appellation", inversedBy="vin")
+     * @ORM\JoinColumn(name="appellation_id", referencedColumnName="id")
+     */
+    private $appellation;
+
 
 
     /**
@@ -381,5 +389,28 @@ class Vin
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set appellation
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Appellation $appellation
+     * @return Vin
+     */
+    public function setAppellation(\Vin\FrontOfficeBundle\Entity\Appellation $appellation = null)
+    {
+        $this->appellation = $appellation;
+
+        return $this;
+    }
+
+    /**
+     * Get appellation
+     *
+     * @return \Vin\FrontOfficeBundle\Entity\Appellation 
+     */
+    public function getAppellation()
+    {
+        return $this->appellation;
     }
 }
