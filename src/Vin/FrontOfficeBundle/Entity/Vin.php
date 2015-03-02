@@ -91,6 +91,13 @@ class Vin
      */
     private $couleur;
 
+     /**
+     * @var float
+     *
+     * @ORM\Column(name="price", type="float")
+     */
+    private $price;
+
     /**
      * @var string
      *
@@ -351,5 +358,28 @@ class Vin
             static::COLOR_SPARKLING => 'Pétillant',
             static::COLOR_SOFT => 'Moelleux'
         );
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     * @return Vin
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float 
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

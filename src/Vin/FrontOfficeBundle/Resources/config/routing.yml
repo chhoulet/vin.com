@@ -2,3 +2,6 @@ vin_front_office_homepage:
     path:     /accueil
     defaults: { _controller: VinFrontOfficeBundle:HomePage:homePage}
 
+vin_front_office_basket:
+    path:     /basket/add/{id}
+    defaults: { _controller: VinFrontOfficeBundle:Basket:add}

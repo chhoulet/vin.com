@@ -1,4 +1,4 @@
 services:
-#    vin_front_office.example:
-#        class: Vin\FrontOfficeBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    vin_front_office.service.basket:
+        class: Vin\FrontOfficeBundle\Service\BasketService
+        arguments: [ @session ]

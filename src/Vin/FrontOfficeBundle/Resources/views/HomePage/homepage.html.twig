@@ -43,7 +43,10 @@
 
                 <h3>liste des vins</h3>
                     {% for vin in vins %}
-                        {{ vin.nameWine }}
+                        {{ vin.nameWine }}<br><br>
+                        {{ vin.price }} € <br>
+
+                        <a href="" class="btn btn-primary">Ajouter au panier</a>
 
                     {% endfor %}
             </div>
