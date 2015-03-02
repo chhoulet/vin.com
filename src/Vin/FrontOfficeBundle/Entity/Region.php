@@ -31,13 +31,6 @@ class Region
     /**
      * @var string
      *
-     * @ORM\Column(name="appellation", type="string", length=255)
-     */
-    private $appellation;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="domaine", type="string", length=255)
      */
     private $domaine;
@@ -89,29 +82,6 @@ class Region
     public function getNameRegion()
     {
         return $this->nameRegion;
-    }
-
-    /**
-     * Set appellation
-     *
-     * @param string $appellation
-     * @return Region
-     */
-    public function setAppellation($appellation)
-    {
-        $this->appellation = $appellation;
-
-        return $this;
-    }
-
-    /**
-     * Get appellation
-     *
-     * @return string 
-     */
-    public function getAppellation()
-    {
-        return $this->appellation;
     }
 
     /**
