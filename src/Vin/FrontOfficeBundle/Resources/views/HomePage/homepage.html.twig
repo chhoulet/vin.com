@@ -30,7 +30,7 @@
                     <div class="col-md-5">
                         <h3>{{ region.nameRegion }}</h3>
                         <h4>Subheading</h4>
-                        <p>{{ nameRegion.descriptionRegion}}</p>
+                        <p>{{ region.descriptionRegion}}</p>
                         <a class="btn btn-primary" href="portfolio-item.html">View Project</i></a>
                     </div>
                 </div>
@@ -38,6 +38,15 @@
             <!-- /.row -->
 
             <hr>
+
+            <div>
+
+                <h3>liste des vins</h3>
+                    {% for vin in vins %}
+                        {{ vin.nameWine }}
+
+                    {% endfor %}
+            </div>
 
            
             <!-- Pagination -->

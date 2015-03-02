@@ -3,6 +3,10 @@ vin_back_office_homepage:
     defaults: { _controller: VinBackOfficeBundle:Homepage:homepage }
 
 #Administration du Front-office: gestion Vin
+vin_back_office_showVin:
+    path:     /showVin 
+    defaults: { _controller:VinBackOfficeBundle:AdminVin:showVin}
+
 vin_back_office_creationVin:
     path:     /creationVin
     defaults: { _controller: VinBackOfficeBundle:AdminVin:creationVin}
@@ -15,11 +19,12 @@ vin_back_office_suppression:
     path:     /suppVin/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminVin:suppVin}
 
-vin_back_office_showVin:
-    path:     /showVin 
-    defaults: { _controller:VinBackOfficeBundle:AdminVin:showVin}
 
 #Administration du Front-office: gestion Region
+vin_back_office_showRegion:
+    path:     /showRegion
+    defaults: { _controller:VinBackOfficeBundle:AdminRegion:showRegion}
+    
 vin_back_office_creationRegion:
     path:     /creationRegion 
     defaults: { _controller:VinBackOfficeBundle:AdminRegion:creationRegion}

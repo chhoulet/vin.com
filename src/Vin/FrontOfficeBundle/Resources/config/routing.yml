@@ -1,3 +1,4 @@
 vin_front_office_homepage:
     path:     /accueil
     defaults: { _controller: VinFrontOfficeBundle:HomePage:homePage}
+

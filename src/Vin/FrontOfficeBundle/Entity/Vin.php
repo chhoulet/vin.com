@@ -13,6 +13,12 @@ use Vin\FrontOfficeBundle\Entity\Couleur;
  */
 class Vin
 {
+    const COLOR_RED = 1;
+    const COLOR_PINK = 2;
+    const COLOR_WHITE = 3;
+    const COLOR_SPARKLING = 4; // Pétillant
+    const COLOR_SOFT = 5;
+
     /**
      * @var integer
      *
@@ -79,10 +85,9 @@ class Vin
     private $stock;
 
      /**
-     * @var string
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Vin\FrontOfficeBundle\Entity\Couleur", inversedBy="vin")
-     * @ORM\JoinColumn(name="id_couleur", referencedColumnName="id")
+     * @ORM\Column(name="color", type="integer")
      */
     private $couleur;
 
@@ -291,35 +296,12 @@ class Vin
     }
 
     /**
-     * Set couleur
-     *
-     * @param \Vin\FrontOfficeBundle\Entity\Couleur $couleur
-     * @return Vin
-     */
-    public function setCouleur(\Vin\FrontOfficeBundle\Entity\Couleur $couleur = null)
-    {
-        $this->couleur = $couleur;
-
-        return $this;
-    }
-
-    /**
-     * Get couleur
-     *
-     * @return \Vin\FrontOfficeBundle\Entity\Couleur 
-     */
-    public function getCouleur()
-    {
-        return $this->couleur;
-    }
-
-    /**
      * Set region
      *
      * @param \Vin\FrontOfficeBundle\Region $region
      * @return Vin
      */
-    public function setRegion(\Vin\FrontOfficeBundle\Region $region = null)
+    public function setRegion(\Vin\FrontOfficeBundle\Entity\Region $region = null)
     {
         $this->region = $region;
 
@@ -334,5 +316,40 @@ class Vin
     public function getRegion()
     {
         return $this->region;
+    }
+
+    /**
+     * Set couleur
+     *
+     * @param integer $couleur
+     * @return Vin
+     */
+    public function setCouleur($couleur)
+    {
+        $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    /**
+     * Get couleur
+     *
+     * @return integer 
+     */
+    public function getCouleur()
+    {
+        return $this->couleur;
+    }
+
+    /*Fonction statique qui définit le choix des couleurs*/
+    public static function getCouleurs()
+    {
+        return array(
+            static::COLOR_RED => 'Rouge',
+            static::COLOR_PINK => 'Rosé',
+            static::COLOR_WHITE => 'Blanc',
+            static::COLOR_SPARKLING => 'Pétillant',
+            static::COLOR_SOFT => 'Moelleux'
+        );
     }
 }

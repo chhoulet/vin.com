@@ -150,7 +150,7 @@ class Region
      * @param \Vin\FrontOfficeBundle\Vin $vin
      * @return Region
      */
-    public function addVin(\Vin\FrontOfficeBundle\Vin $vin)
+    public function addVin(\Vin\FrontOfficeBundle\Entity\Vin $vin)
     {
         $this->vin[] = $vin;
 
@@ -162,7 +162,7 @@ class Region
      *
      * @param \Vin\FrontOfficeBundle\Vin $vin
      */
-    public function removeVin(\Vin\FrontOfficeBundle\Vin $vin)
+    public function removeVin(\Vin\FrontOfficeBundle\Entity\Vin $vin)
     {
         $this->vin->removeElement($vin);
     }
@@ -198,5 +198,10 @@ class Region
     public function getDescriptionRegion()
     {
         return $this->descriptionRegion;
+    }
+
+    public function __toString()
+    {
+        return $this ->nameRegion;
     }
 }
