@@ -5,3 +5,7 @@ vin_front_office_homepage:
 vin_front_office_basket:
     path:     /basket/add/{id}
     defaults: { _controller: VinFrontOfficeBundle:Basket:add}
+
+vin_front_office_showOneVin:
+    path:     /showOneVin/{id}
+    defaults: { _controller:VinFrontOfficeBundle:Vin:showOneVin}

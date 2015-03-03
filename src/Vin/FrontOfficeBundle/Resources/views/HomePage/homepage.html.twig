@@ -62,7 +62,7 @@
                             {{ vinDuMois.nameWine }}<br>
                             {{ vinDuMois.price }} € <br>
 
-                            <a href="" class="btn btn-primary">Ajouter au panier</a><br><br>
+                            <a href="{{ path('vin_front_office_showOneVin',{id:vinDuMois.id}) }}" class="btn btn-primary">Détail du vin</a><br><br>
 
                 </div>
 
@@ -73,7 +73,7 @@
                             {{ bordeaux.nameWine }}<br>
                             {{ bordeaux.price }} € <br>
 
-                            <a href="" class="btn btn-primary">Ajouter au panier</a><br><br>   
+                            <a href="{{ path('vin_front_office_showOneVin',{id:bordeaux.id}) }}" class="btn btn-primary">Détail du vin</a><br><br>   
 
                 </div>
 
