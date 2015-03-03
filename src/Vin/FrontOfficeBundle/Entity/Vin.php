@@ -114,6 +114,14 @@ class Vin
      */
     private $appellation;
 
+     /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Vin\FrontOfficeBundle\Entity\Domaine", inversedBy="vin")
+     * @ORM\JoinColumn(name="domaine_id", referencedColumnName="id")
+     */
+    private $domaine;
+
 
 
     /**
@@ -412,5 +420,28 @@ class Vin
     public function getAppellation()
     {
         return $this->appellation;
+    }
+
+    /**
+     * Set domaine
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Domaine $domaine
+     * @return Vin
+     */
+    public function setDomaine(\Vin\FrontOfficeBundle\Entity\Domaine $domaine = null)
+    {
+        $this->domaine = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return \Vin\FrontOfficeBundle\Entity\Domaine 
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
     }
 }

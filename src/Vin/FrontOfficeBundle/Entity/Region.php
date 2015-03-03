@@ -31,17 +31,9 @@ class Region
     /**
      * @var string
      *
-     * @ORM\Column(name="domaine", type="string", length=255)
-     */
-    private $domaine;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="descriptionRegion", type="string", length=255)
+     * @ORM\Column(name="descriptionRegion", type="text")
      */
     private $descriptionRegion;
-
 
     /**
      * @var string
@@ -57,6 +49,12 @@ class Region
      */
     private $appellation;
 
+    /**
+     * @var string
+     *
+     * @ORM\OneToMany(targetEntity="Vin\FrontOfficeBundle\Entity\Domaine", mappedBy="region")
+     */
+    private $domaine;
 
 
     /**
@@ -92,28 +90,6 @@ class Region
         return $this->nameRegion;
     }
 
-    /**
-     * Set domaine
-     *
-     * @param string $domaine
-     * @return Region
-     */
-    public function setDomaine($domaine)
-    {
-        $this->domaine = $domaine;
-
-        return $this;
-    }
-
-    /**
-     * Get domaine
-     *
-     * @return string 
-     */
-    public function getDomaine()
-    {
-        return $this->domaine;
-    }
     /**
      * Constructor
      */
@@ -214,5 +190,38 @@ class Region
     public function getAppellation()
     {
         return $this->appellation;
+    }
+
+    /**
+     * Add domaine
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Domaine $domaine
+     * @return Region
+     */
+    public function addDomaine(\Vin\FrontOfficeBundle\Entity\Domaine $domaine)
+    {
+        $this->domaine[] = $domaine;
+
+        return $this;
+    }
+
+    /**
+     * Remove domaine
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Domaine $domaine
+     */
+    public function removeDomaine(\Vin\FrontOfficeBundle\Entity\Domaine $domaine)
+    {
+        $this->domaine->removeElement($domaine);
+    }
+
+    /**
+     * Get domaine
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDomaine()
+    {
+        return $this->domaine;
     }
 }
