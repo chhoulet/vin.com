@@ -33,8 +33,8 @@ vin_back_office_editionRegion:
     path:     /Region/edition/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminRegion:editionRegion}
 
-vin_back_office_suppressionRegion:
-    path:     /Region/Suppression/{id}
+vin_back_office_suppRegion:
+    path:     /Region/supp/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminRegion:suppRegion}
 
 #Administration du Front-office:gestion Appellation
@@ -45,6 +45,10 @@ vin_back_office_showAppellation:
 vin_back_office_creationAppellation:
     path:     /Appellation/creation 
     defaults: { _controller:VinBackOfficeBundle:AdminAppellation:creationAppellation}
+
+vin_back_office_editionAppellation:
+    path:     /Appellation/edition/{id}
+    defaults: { _controller:VinBackOfficeBundle:AdminAppellation:editionAppellation}
 
 vin_back_office_suppressionAppellation:
     path:     /Appellation/suppression/{id}
