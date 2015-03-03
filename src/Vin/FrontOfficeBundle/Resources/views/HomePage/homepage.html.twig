@@ -10,11 +10,6 @@
                     <h1 class="page-header">Bienvenue sur le site des  vins de France :<br>
                         <small>Choisissez votre région :</small>
                     </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a>
-                        </li>
-                        <li class="active"></li>
-                    </ol>
                 </div>
             </div>
             <!-- /.row -->
@@ -24,13 +19,13 @@
                 <div class="row">
                     <div class="col-md-7">
                         <a href="portfolio-item.html">
-                            <img class="img-responsive img-hover" src="http://placehold.it/700x300" alt="">
+                            <img class="img-responsive img-hover" src="../public/images/{{region.vue}}.jpg" alt="region.vue" style="height:300px;width:700px;">
                         </a>
                     </div>
                     <div class="col-md-5">
                         <h3>{{ region.nameRegion }}</h3>
                         <p>{{ region.descriptionRegion}}</p>
-                        <a class="btn btn-primary" href="portfolio-item.html">View Project</i></a>
+                        <a class="btn btn-primary" href="portfolio-item.html">Voir toutes les appellations :</i></a>
                     </div>
                 </div>
 

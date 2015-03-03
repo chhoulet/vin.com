@@ -35,6 +35,14 @@ class Region
      */
     private $descriptionRegion;
 
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="vue", type="text", length=255)
+     */
+    private $vue;
+
+
     /**
      * @var string
      *
@@ -223,5 +231,28 @@ class Region
     public function getDomaine()
     {
         return $this->domaine;
+    }
+
+    /**
+     * Set vue
+     *
+     * @param string $vue
+     * @return Region
+     */
+    public function setVue($vue)
+    {
+        $this->vue = $vue;
+
+        return $this;
+    }
+
+    /**
+     * Get vue
+     *
+     * @return string 
+     */
+    public function getVue()
+    {
+        return $this->vue;
     }
 }
