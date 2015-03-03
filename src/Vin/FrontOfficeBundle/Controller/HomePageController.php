@@ -12,9 +12,13 @@ class HomePageController extends Controller
     	$em = $this -> getDoctrine()->getManager();
     	$vins = $em -> getRepository('VinFrontOfficeBundle:Vin')->findAll();
     	$showRegions = $em -> getRepository('VinFrontOfficeBundle:Region') -> findAll();
+    	$vinDuMois = $em -> getRepository('VinFrontOfficeBundle:Vin') -> vinDuMois();
+    	$bordeaux = $em -> getRepository('VinFrontOfficeBundle:Vin') -> bordeaux();
 
         return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig', 
         	array('showRegions'=> $showRegions, 
-        		  'vins'=> $vins));
+        		  'vins'       => $vins,
+        		  'vinDuMois'  => $vinDuMois,
+        		  'bordeaux'   => $bordeaux));
     }
 }

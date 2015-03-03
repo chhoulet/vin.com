@@ -12,4 +12,29 @@ use Doctrine\ORM\EntityRepository;
  */
 class VinRepository extends EntityRepository
 {
+	public function vinDuMois()
+	{
+		$query = $this ->getEntityManager()->createQuery('
+			SELECT v
+			FROM VinFrontOfficeBundle:Vin v 
+			WHERE v.price < 20
+			')
+		->setMaxResults(1);
+
+		return $query -> getSingleResult();
+	}
+
+	public function bordeaux()
+	{
+		$query = $this -> getEntityManager()->createQuery('
+			SELECT v 
+			FROM VinFrontOfficeBundle:Vin v 
+			JOIN v.region r
+			WHERE r.nameRegion LIKE :region')
+		->setParameter('region', '%ordeaux%')
+		->setMaxResults(1);
+
+		return $query -> getSingleResult();
+	}
 }
+

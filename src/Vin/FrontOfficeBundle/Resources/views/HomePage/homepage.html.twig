@@ -29,7 +29,6 @@
                     </div>
                     <div class="col-md-5">
                         <h3>{{ region.nameRegion }}</h3>
-                        <h4>Subheading</h4>
                         <p>{{ region.descriptionRegion}}</p>
                         <a class="btn btn-primary" href="portfolio-item.html">View Project</i></a>
                     </div>
@@ -41,16 +40,43 @@
 
            
 
-            <div>
+            <div class="raw">
 
-                <h3>liste des vins</h3>
-                    {% for vin in vins %}
-                        {{ vin.nameWine }}<br><br>
-                        {{ vin.price }} € <br>
+                <div class="col-md-4">
+                    <h3>Liste des vins :</h3>
 
-                        <a href="" class="btn btn-primary">Ajouter au panier</a>
+                        {% for vin in vins %}
+                            {{ vin.nameWine }}<br>
+                            {{ vin.price }} € <br>
 
-                    {% endfor %}
+                            <a href="" class="btn btn-primary">Ajouter au panier</a><br><br>
+
+                        {% endfor %}<br><br>
+
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Vin du mois :</h3>
+
+                        
+                            {{ vinDuMois.nameWine }}<br>
+                            {{ vinDuMois.price }} € <br>
+
+                            <a href="" class="btn btn-primary">Ajouter au panier</a><br><br>
+
+                </div>
+
+                <div class="col-md-4">
+                    <h3>Notre Bordeaux :</h3>
+
+                        
+                            {{ bordeaux.nameWine }}<br>
+                            {{ bordeaux.price }} € <br>
+
+                            <a href="" class="btn btn-primary">Ajouter au panier</a><br><br>   
+
+                </div>
+
             </div>
 
            
