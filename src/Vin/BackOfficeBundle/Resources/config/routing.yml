@@ -15,7 +15,7 @@ vin_back_office_editionVin:
     path:     /Vin/edition/{id} 
     defaults: { _controller:VinBackOfficeBundle:AdminVin:editionVin}
 
-vin_back_office_suppression:
+vin_back_office_suppVin:
     path:     /Vin/supp/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminVin:suppVin}
 
@@ -50,6 +50,23 @@ vin_back_office_editionAppellation:
     path:     /Appellation/edition/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminAppellation:editionAppellation}
 
-vin_back_office_suppressionAppellation:
-    path:     /Appellation/suppression/{id}
+vin_back_office_suppAppellation:
+    path:     /Appellation/supp/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminAppellation:suppAppellation}
+
+#Administration du Front-office: getion Domaine
+vin_back_office_showDomaine:
+    path:     /Domaine/show
+    defaults: { _controller:VinBackOfficeBundle:AdminDomaine:showDomaine}
+
+vin_back_office_creationDomaine:
+    path:     /Domaine/Creation
+    defaults: { _controller:VinBackOfficeBundle:AdminDomaine:creationDomaine}
+
+vin_back_office_editionDomaine:
+    path:     /Domaine/edition/{id}
+    defaults: { _controller:VinBackOfficeBundle:AdminDomaine:editionDomaine}
+
+vin_back_office_suppDomaine:
+    path:     /Domaine/supp/{id}
+    defaults: { _controller:VinBackOfficeBundle:AdminDomaine:SuppDomaine}
