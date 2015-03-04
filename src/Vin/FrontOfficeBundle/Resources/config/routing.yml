@@ -9,3 +9,7 @@ vin_front_office_basket:
 vin_front_office_showOneVin:
     path:     /showOneVin/{id}
     defaults: { _controller:VinFrontOfficeBundle:Vin:showOneVin}
+
+vin_front_office_showAppellation:
+    path:     /showAppellation
+    defaults: { _controller:VinFrontOfficeBundle:Appellation:showAppellation}

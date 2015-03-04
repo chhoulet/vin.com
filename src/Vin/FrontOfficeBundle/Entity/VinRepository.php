@@ -36,5 +36,6 @@ class VinRepository extends EntityRepository
 
 		return $query -> getSingleResult();
 	}
+
 }
 
