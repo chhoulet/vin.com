@@ -59,6 +59,20 @@ class Region
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "30",
+     *      minMessage = "Votre slug doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre slug ne peut pas être plus long que {{ limit }} caractères"
+     * )
+     *
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
+
+    /**
+     * @var string
      *
      * @ORM\OneToMany(targetEntity="Vin\FrontOfficeBundle\Entity\Vin", mappedBy="region")
      */
@@ -268,5 +282,28 @@ class Region
     public function getVue()
     {
         return $this->vue;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Region
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
