@@ -11,5 +11,5 @@ vin_front_office_showOneVin:
     defaults: { _controller:VinFrontOfficeBundle:Vin:showOneVin}
 
 vin_front_office_showAppellation:
-    path:     /showAppellation
+    path:     /showAppellation/Region/{slug}
     defaults: { _controller:VinFrontOfficeBundle:Appellation:showAppellation}
