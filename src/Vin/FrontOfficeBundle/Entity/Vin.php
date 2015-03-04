@@ -3,7 +3,10 @@
 namespace Vin\FrontOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use Vin\FrontOfficeBundle\Entity\Couleur;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Vin
@@ -30,21 +33,26 @@ class Vin
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "60",
+     *      minMessage = "Votre nom de vin doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom de vin ne peut pas être plus long que {{ limit }} caractères"
+     * )
      * @ORM\Column(name="nameWine", type="string", length=255)
      */
     private $nameWine;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="integer", message="La valeur {{ value }} n'est pas un type {{ type }} valide.")
      * @ORM\Column(name="year", type="integer")
      */
     private $year;
@@ -65,6 +73,12 @@ class Vin
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "600",
+     *      minMessage = "Votre description de vin doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre description de vin ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="description", type="string", length=255)
      */
@@ -72,6 +86,12 @@ class Vin
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = "20",
+     *      max = "600",
+     *      minMessage = "Votre description d'accord mets-vin doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre description d'accord mets-vin ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="mealWine", type="string", length=255)
      */
@@ -79,7 +99,7 @@ class Vin
 
     /**
      * @var integer
-     *
+     * @Assert\Type(type="integer", message="La valeur {{ value }} n'est pas un type {{ type }} valide.")
      * @ORM\Column(name="stock", type="integer")
      */
     private $stock;
@@ -93,7 +113,7 @@ class Vin
 
      /**
      * @var float
-     *
+     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas un type {{ type }} valide.")
      * @ORM\Column(name="price", type="float")
      */
     private $price;

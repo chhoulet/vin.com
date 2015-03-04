@@ -4,6 +4,8 @@ namespace Vin\FrontOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Region
  *
@@ -23,6 +25,12 @@ class Region
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "60",
+     *      minMessage = "Votre nom de région doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom de région ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="nameRegion", type="string", length=255)
      */
@@ -30,6 +38,12 @@ class Region
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "1000",
+     *      minMessage = "Votre description de région doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre description de région ne peut pas être plus long que {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="descriptionRegion", type="text")
      */
@@ -37,7 +51,7 @@ class Region
 
      /**
      * @var string
-     *
+     * @Assert\NotBlank()
      * @ORM\Column(name="vue", type="text", length=255)
      */
     private $vue;
