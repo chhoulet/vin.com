@@ -3,11 +3,12 @@
 namespace Vin\FrontOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Vin\FrontOfficeBundle\Entity\Region;
+use Vin\FrontOfficeBundle\Form\PriceType;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomePageController extends Controller
 {
-    public function homePageAction()
+    public function homePageAction(Request $request)
     {
     	$em = $this -> getDoctrine()->getManager();
     	$vins = $em -> getRepository('VinFrontOfficeBundle:Vin')->findAll();
@@ -15,10 +16,27 @@ class HomePageController extends Controller
     	$vinDuMois = $em -> getRepository('VinFrontOfficeBundle:Vin') -> vinDuMois();
     	$bordeaux = $em -> getRepository('VinFrontOfficeBundle:Vin') -> bordeaux();
 
-        return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig', 
+// Selection des vins par prix :
+
+        $em = $this ->getDoctrine()->getManager();
+        $formPrice = $this -> createForm(new PriceType());
+
+        $formPrice ->handleRequest($request);
+
+        if($formPrice -> isValid()){
+            $data = $formPrice ->getData();
+            $price = $em ->getRepository('VinFrontOfficeBundle:Vin')->getVinByPrice($data['price']);
+
+            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig', array('showVins'=>$price));
+        }
+
+
+
+        return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig',
         	array('showRegions'=> $showRegions, 
         		  'vins'       => $vins,
         		  'vinDuMois'  => $vinDuMois,
-        		  'bordeaux'   => $bordeaux));
+        		  'bordeaux'   => $bordeaux,
+                  'formPrice'  => $formPrice->createView()));
     }
 }
