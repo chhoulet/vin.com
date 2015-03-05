@@ -17,8 +17,6 @@ class RegionType extends AbstractType
         $builder
             ->add('nameRegion')
             ->add('slug')
-            ->add('appellation')
-            ->add('domaine')
             ->add('descriptionRegion')
             ->add('vue')
             ->add('valider','submit')

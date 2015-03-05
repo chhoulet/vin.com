@@ -47,7 +47,7 @@ class AdminRegionController extends Controller
 		$form -> handleRequest($request);
 
 		if($form -> isValid()){
-			$em -> persist($region);
+			$em -> persist($editionRegion);
 			$em -> flush();
 
 			return $this -> redirect($this->generateUrl('vin_back_office_editionRegion'));
