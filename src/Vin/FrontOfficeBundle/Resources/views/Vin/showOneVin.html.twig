@@ -1,0 +1,42 @@
+{% extends 'VinFrontOfficeBundle::layout.html.twig' %}
+
+	{% block content %}
+
+		<div class="container">
+
+	        <div class="row">
+
+	            <div class="col-md-3">
+	                <p class="lead">{{ showOneVin.appellation.nameAppellation }} </p>
+	                <div class="list-group">
+	                    <a href="#" class="list-group-item active">Category 1</a>
+	                    <a href="#" class="list-group-item">Category 2</a>
+	                    <a href="#" class="list-group-item">Category 3</a>
+	                </div>
+	            </div>
+
+	            <div class="col-md-9">
+
+	                <div class="thumbnail">
+	                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+	                    <div class="caption-full">
+	                        <h4 class="pull-right">{{ showOneVin.price }} €</h4>
+	                        <h4><a href="#">{{ showOneVin.nameWine }} {{ showOneVin.title }} {{ showOneVin.domaine.nameDomaine }}</a>
+	                        </h4>
+	                        <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">			Bootsnipp - http://bootsnipp.com</a>.</p>
+	                        <p>Want to make these reviews work? Check out
+	                            <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
+	                            </strong>over at maxoffsky.com!</p>
+	                        <p>{{ showOneVin.description }} </p><br>
+	                        <p>{{ showOneVin.mealWine }}</p>
+	                    </div>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </div>
+
+	{% endblock %}

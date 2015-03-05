@@ -1,0 +1,25 @@
+{% extends 'VinBackOfficeBundle::layout.html.twig' %}
+
+	{% block content %}
+
+		<div style="width:550px;text-align:center;border:solid black 1px;border-radius:7px;margin-left:425px;margin-top:25px;">
+
+			<h3>Liste des vins :</h3>
+			
+				{% for vin in showVin %}
+
+					Nom    : {{ vin.nameWine }}  <br>
+					Titre  : {{ vin.title    }}  <br>
+					Année  : {{ vin.year     }}  <br>
+					Format : {{ vin.format   }}  <br>
+					Prix   : {{ vin.price    }} €<br>
+
+					<a href="{{ path('vin_back_office_editionVin',{id:vin.id}) }}" class="btn btn-primary">Editer ce produit</a><br><br>
+
+					<a href="{{ path('vin_back_office_suppVin',{id:vin.id}) }}" class="btn btn-primary">Supprimer ce produit</a><br><br>
+
+				{% endfor %}
+				
+		</div>
+
+	{% endblock %}

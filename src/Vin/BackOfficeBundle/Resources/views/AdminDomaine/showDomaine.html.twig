@@ -1,0 +1,18 @@
+{% extends 'VinBackOfficeBundle::layout.html.twig' %}
+
+
+	{% block content %}
+
+		<div style="width:550px;text-align:center;border:solid black 1px;border-radius:7px;margin-left:425px;margin-top:25px;">
+
+			<h3>Liste des domaines</h3>
+				{% for domaine in showDomaine %}
+					{{ domaine.nameDomaine }}<br><br>
+
+					<a href="{{ path('vin_back_office_editionDomaine',{id:domaine.id}) }}" class="btn btn-primary">Editer ce domaine:</a><br><br>
+					<a href="{{ path('vin_back_office_suppDomaine',{id:domaine.id}) }}"  class="btn btn-primary">Supprimer ce domaine</a><br><br>
+				{% endfor %}
+
+		</div>
+
+	{% endblock %}
