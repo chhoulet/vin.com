@@ -57,6 +57,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="contact.html">
+                            {{ render(controller('VinFrontOfficeBundle:Basket:count')) }}
+                        </a>
+                    </li>
                      <li>
                             <a href="{{ path('vin_back_office_homepage') }}">Back-office</a>
                     </li>

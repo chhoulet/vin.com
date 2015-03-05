@@ -20,10 +20,27 @@ class BasketService
 
 	public function add($id)
 	{
-		var_dump($this->session->all());
-		$this->session->set('basket', $id);
-		var_dump($this->session->all());
+        // on vérifie si le panier existe
+        if (!$this->session->has('basket')) {
+            // Si basket n'existe pas, on le créé en le rattachant à la session
+            $this->session->set('basket', array()); // alors on créé un tableau vide
+        }
+
+        // On récupère le contenu du panier
+        $basket = $this->session->get('basket');
+
+        //array_push($basket, $id);
+        // On empile l'id du vin a la fin du tableau
+        $basket[] = $id;
+
+        // On défini le nouveau panier
+		$this->session->set('basket', $basket);
 	}
+
+    public function count()
+    {
+        return count($this->session->get('basket'));
+    }
 
 
 }
