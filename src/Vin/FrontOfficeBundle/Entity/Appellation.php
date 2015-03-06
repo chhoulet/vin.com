@@ -46,6 +46,13 @@ class Appellation
      */
     private $descriptionAppellation;
 
+    /**
+     * @var string
+     * @Assert\NotBlank()
+     * @ORM\Column(name="vue", type="text")
+     */
+    private $vue;
+
 
      /**
      * @var string
@@ -264,5 +271,28 @@ class Appellation
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set vue
+     *
+     * @param string $vue
+     * @return Appellation
+     */
+    public function setVue($vue)
+    {
+        $this->vue = $vue;
+
+        return $this;
+    }
+
+    /**
+     * Get vue
+     *
+     * @return string 
+     */
+    public function getVue()
+    {
+        return $this->vue;
     }
 }

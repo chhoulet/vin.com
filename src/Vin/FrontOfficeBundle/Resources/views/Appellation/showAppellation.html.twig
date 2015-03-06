@@ -20,7 +20,7 @@
             {% for vin in showAppellation %}
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src="http://placehold.it/800x500" alt="">
+                    <img class="img-responsive img-hover" src="../public/images/{{ vin.vue }}.jpg" alt="vin.slug">
                     <div class="caption" style ="height:433px;overflow:hidden;">
                         <h3> {{ vin.nameAppellation }}</h3>
                         <p>{{ vin.descriptionAppellation }}</p>
