@@ -7,11 +7,11 @@
 	        <div class="row">
 
 	            <div class="col-md-3">
-	                <p class="lead">{{ showOneVin.appellation.nameAppellation }} </p>
+	                <h2 class="lead">{{ showOneVin.appellation.nameAppellation }}</h2>
 	                <div class="list-group">
-	                    <a href="#" class="list-group-item active">Category 1</a>
-	                    <a href="#" class="list-group-item">Category 2</a>
-	                    <a href="#" class="list-group-item">Category 3</a>
+	                    <a href="{{ path('vin_front_office_homepage') }}" class="list-group-item active">Retour à l'accueil</a>
+	                    {#<a href="{{ path('vin_front_office_showAppellation',{slug:showOneVin.appellation.slug}) }}" class="list-group-item">Choix des vins par appellation</a>#}
+	                    <a href="#" class="list-group-item">Voir mon panier</a>
 	                </div>
 	            </div>
 
@@ -21,15 +21,13 @@
 	                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
 	                    <div class="caption-full">
 	                        <h4 class="pull-right">{{ showOneVin.price }} €</h4>
-	                        <h4></h4>{{ showOneVin.nameWine }} {{ showOneVin.title }} {{ showOneVin.domaine.nameDomaine }}
+	                        <h4>{{ showOneVin.nameWine }} {{ showOneVin.title }} {{ showOneVin.domaine.nameDomaine }}<br>
+                            {{ showOneVin.year }}</h4>
 	                        </h4>
-	                        <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">			Bootsnipp - http://bootsnipp.com</a>.</p>
-	                        <p>Want to make these reviews work? Check out
-	                            <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
-	                            </strong>over at maxoffsky.com!</p>
-	                        <p>{{ showOneVin.description }} </p><br>
-	                        <p>{{ showOneVin.mealWine }}</p><br>
-                            <a href="{{ path('vin_front_office_basket_add',{id:showOneVin.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+
+	                        <p>Votre vin {{ showOneVin.description }} </p><br>
+	                        <p>Accompagne à merveille {{ showOneVin.mealWine }}</p><br>
+                            <a href="{{ path('vin_front_office_basket_add',{id:showOneVin.id}) }}" class="btn btn-primary" style="margin-left:365px;">Ajouter au panier</a>
 	                    </div>
 
 	                </div>

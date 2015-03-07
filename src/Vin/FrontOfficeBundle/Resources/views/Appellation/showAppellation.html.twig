@@ -12,29 +12,29 @@
                 <hr>
 	
 
-     <div class="container">
+        <div class="container">
 
         <!-- Page Features -->
-        <div class="row text-center">
+             <div class="row text-center">
 
-            {% for vin in showAppellation %}
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img class="img-responsive img-hover" src="../public/images/{{ vin.vue }}.jpg" alt="vin.slug">
-                    <div class="caption" style ="height:433px;overflow:hidden;">
-                        <h3> {{ vin.nameAppellation }}</h3>
-                        <p>{{ vin.descriptionAppellation }}</p>
-                        <p>
-                            <a href="{{ path('vin_front_office_showVinsAppellations',{slug:vin.slug}) }}" class="btn btn-primary">Voir tous les vins de {{ vin.nameAppellation }}</a>
-                        </p>
+                {% for vin in showAppellation %}
+                    <div class="col-md-3 col-sm-6 hero-feature">
+                        <div class="thumbnail">
+                            <img class="img-responsive img-hover" src="../public/images/{{ vin.vue }}.jpg" alt="vin.slug">
+                            <div class="caption" style ="height:433px;overflow:hidden;">
+                                <h3> {{ vin.nameAppellation }}</h3>
+                                <p>{{ vin.descriptionAppellation }}</p>
+                                <p>
+                                    <a href="{{ path('vin_front_office_showVinsAppellations',{slug:vin.slug}) }}" class="btn btn-primary">Voir tous les vins de {{ vin.nameAppellation }}</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
 
-
+             </div>
+        <!-- /.row -->
 
         </div>
-        <!-- /.row -->
 
 {% endblock %}
