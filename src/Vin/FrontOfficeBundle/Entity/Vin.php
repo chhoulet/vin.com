@@ -36,8 +36,8 @@ class Vin
      * @Assert\Length(
      *      min = "2",
      *      max = "60",
-     *      minMessage = "Votre nom de vin doit faire au moins {{ limit }} caractères",
-     *      maxMessage = "Votre nom de vin ne peut pas être plus long que {{ limit }} caractères"
+     *      minMessage = "Le nom de vin doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Le nom de vin ne peut pas être plus long que {{ limit }} caractères"
      * )
      * @ORM\Column(name="nameWine", type="string", length=255)
      */
@@ -49,6 +49,13 @@ class Vin
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+
+    /**
+     * @var string
+     * @Assert\NotBlank()
+     * @ORM\Column(name="vue", type="string", length=255)
+     */
+    private $vue;
 
     /**
      * @var integer
@@ -463,5 +470,28 @@ class Vin
     public function getDomaine()
     {
         return $this->domaine;
+    }
+
+    /**
+     * Set vue
+     *
+     * @param string $vue
+     * @return Vin
+     */
+    public function setVue($vue)
+    {
+        $this->vue = $vue;
+
+        return $this;
+    }
+
+    /**
+     * Get vue
+     *
+     * @return string 
+     */
+    public function getVue()
+    {
+        return $this->vue;
     }
 }

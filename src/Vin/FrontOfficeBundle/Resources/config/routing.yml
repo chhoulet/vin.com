@@ -1,15 +1,23 @@
+#Route definissant la gestion de la page d'accueil
 vin_front_office_homepage:
     path:     /accueil
     defaults: { _controller: VinFrontOfficeBundle:HomePage:homePage}
 
-vin_front_office_basket_add:
-    path:     /basket/add/{id}
-    defaults: { _controller: VinFrontOfficeBundle:Basket:add}
+#Routes definissant la gestion des pages 'vins'
+vin_front_office_showVinsAppellations:
+    path:     /showVinsAppellation/Vins/{slug}
+    defaults: { _controller:VinFrontOfficeBundle:Vin:showVinsAppellation}
 
 vin_front_office_showOneVin:
     path:     /showOneVin/{id}
     defaults: { _controller:VinFrontOfficeBundle:Vin:showOneVin}
 
+#Routes definissant la gestion de la page 'appellation'
 vin_front_office_showAppellation:
     path:     /showAppellation/Region/{slug}
     defaults: { _controller:VinFrontOfficeBundle:Appellation:showAppellation}
+
+#Routes definissant la gestion du 'basket'
+vin_front_office_basket_add:
+    path:     /basket/add/{id}
+    defaults: { _controller: VinFrontOfficeBundle:Basket:add}

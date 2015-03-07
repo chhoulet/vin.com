@@ -25,7 +25,7 @@
                         <h3> {{ vin.nameAppellation }}</h3>
                         <p>{{ vin.descriptionAppellation }}</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Voir tous les vins de {{ vin.nameAppellation }}</a>
+                            <a href="{{ path('vin_front_office_showVinsAppellations',{slug:vin.slug}) }}" class="btn btn-primary">Voir tous les vins de {{ vin.nameAppellation }}</a>
                         </p>
                     </div>
                 </div>

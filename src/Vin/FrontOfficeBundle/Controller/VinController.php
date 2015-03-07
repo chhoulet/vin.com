@@ -16,4 +16,16 @@ class VinController extends Controller
 		return $this -> render('VinFrontOfficeBundle:Vin:showOneVin.html.twig',array('showOneVin'=>$showOneVin));
 
 	}
+
+    public function showVinsAppellationAction($slug)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $appellation = $em -> getRepository('VinFrontOfficeBundle:Appellation') -> findOneBySlug($slug);
+
+        $showVinsAppellation = $em -> getRepository('VinFrontOfficeBundle:Vin') -> findByAppellation($appellation);
+
+        return $this -> render('VinFrontOfficeBundle:Vin:showVinsAppellation.html.twig',
+            array('appellation'         => $appellation,
+                  'showVinsAppellation' => $showVinsAppellation));
+    }
 }
