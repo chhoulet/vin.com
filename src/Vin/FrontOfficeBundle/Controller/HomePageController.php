@@ -18,7 +18,7 @@ class HomePageController extends Controller
 
 // Selection des vins par prix :
 
-        $em = $this ->getDoctrine()->getManager();
+
         $formPrice = $this -> createForm(new PriceType());
 
         $formPrice ->handleRequest($request);
@@ -26,17 +26,18 @@ class HomePageController extends Controller
         if($formPrice -> isValid()){
             $data = $formPrice ->getData();
             $price = $em ->getRepository('VinFrontOfficeBundle:Vin')->getVinByPrice($data['price']);
+//            $appellation = $em ->getRepository('VinFrontOfficeBundle:Appellation')->findAll();
 
-            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig', array('showVins'=>$price));
+            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig',
+                array(
+                      'showVins'     => $price));
         }
 
-
-
         return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig',
-        	array('showRegions'=> $showRegions, 
-        		  'vins'       => $vins,
-        		  'vinDuMois'  => $vinDuMois,
-        		  'bordeaux'   => $bordeaux,
-                  'formPrice'  => $formPrice->createView()));
+        	array('showRegions'  => $showRegions,
+        		  'vins'         => $vins,
+        		  'vinDuMois'    => $vinDuMois,
+        		  'bordeaux'     => $bordeaux,
+                  'formPrice'    => $formPrice->createView()));
     }
 }
