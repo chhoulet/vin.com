@@ -53,9 +53,9 @@ class Vin
     /**
      * @var string
      * @Assert\NotBlank()
-     * @ORM\Column(name="vue", type="string", length=255)
+     * @ORM\Column(name="slug", type="string", length=255)
      */
-    private $vue;
+    private $slug;
 
     /**
      * @var integer
@@ -145,7 +145,7 @@ class Vin
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="Vin\FrontOfficeBundle\Entity\Domaine", inversedBy="vin")
-     * @ORM\JoinColumn(name="domaine_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="domaine_id", referencedColumnName="id", nullable=true)
      */
     private $domaine;
 
@@ -170,6 +170,8 @@ class Vin
     public function setNameWine($nameWine)
     {
         $this->nameWine = $nameWine;
+//        Creation automatique du slug lors de l'attribution d'un nouveau nom de vin
+        $this->setSlug($nameWine);
 
         return $this;
     }
@@ -493,5 +495,32 @@ class Vin
     public function getVue()
     {
         return $this->vue;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Vin
+     */
+    public function setSlug($slug)
+    {
+//        Mise en forme automatique du slug lorsqu'un vin est créé
+        $slug = str_replace(' ', '-', $slug);
+        $slug = strtolower($slug);
+
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

@@ -24,7 +24,6 @@ class VinController extends Controller
         $showVinsAppellation = $em -> getRepository('VinFrontOfficeBundle:Vin') -> findByAppellation($appellation);
 
         return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig',
-            array('appellation'         => $appellation,
-                  'showVins'            => $showVinsAppellation));
+            array('showVins'  => $showVinsAppellation));
     }
 }

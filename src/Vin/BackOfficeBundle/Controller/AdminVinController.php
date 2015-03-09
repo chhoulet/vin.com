@@ -30,6 +30,7 @@ class AdminVinController extends Controller
 		$form -> handleRequest($request);
 
 		if($form -> isValid()){
+            //$vin->setSlug($vin->getNameWine());
 		   $em -> persist($vin);
 		   $em -> flush();
 
