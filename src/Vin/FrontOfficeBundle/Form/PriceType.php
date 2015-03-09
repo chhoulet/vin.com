@@ -18,7 +18,7 @@ class PriceType extends AbstractType
                                                                        '50'   => '50',
                                                                        '> 50' => '>50')
                                                       ))
-                    ->add('valider','submit', array('attr'=> array('class'=>'form-control')));
+                    ->add('valider','submit', array('attr'=> array('class'=>'btn btn-primary')));
         }
 
         public function getName()

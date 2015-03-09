@@ -4,6 +4,7 @@ namespace Vin\FrontOfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Vin\FrontOfficeBundle\Form\PriceType;
+use Vin\FrontOfficeBundle\Form\ColorType;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomePageController extends Controller
@@ -26,11 +27,23 @@ class HomePageController extends Controller
         if($formPrice -> isValid()){
             $data = $formPrice ->getData();
             $price = $em ->getRepository('VinFrontOfficeBundle:Vin')->getVinByPrice($data['price']);
-//            $appellation = $em ->getRepository('VinFrontOfficeBundle:Appellation')->findAll();
 
             return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig',
-                array(
-                      'showVins'     => $price));
+                array('showVins' => $price));
+        }
+
+
+        $formColor = $this -> createForm(new ColorType());
+
+        $formColor ->handleRequest($request);
+
+        if($formColor -> isValid())
+        {
+            $data = $formColor ->getData();
+            $color = $em ->getRepository('VinFrontOfficeBundle:Vin')->findByCouleur($data['color']);
+
+            return $this->render('VinFrontOfficeBundle:Vin:showVins.html.twig',
+                array('showVins'=>$color));
         }
 
         return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig',
@@ -38,6 +51,43 @@ class HomePageController extends Controller
         		  'vins'         => $vins,
         		  'vinDuMois'    => $vinDuMois,
         		  'bordeaux'     => $bordeaux,
-                  'formPrice'    => $formPrice->createView()));
+                  'formPrice'    => $formPrice->createView(),
+                  'formColor'    => $formColor->createView()
+                  ));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

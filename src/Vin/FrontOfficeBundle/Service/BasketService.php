@@ -14,7 +14,7 @@ class BasketService
 	private $session;
     private $em;
 
-	/*le construct sert à construire la classe 'basket', on lui injecte la classe session*/
+	/*le construct sert à construire la classe 'basket', on lui injecte la classe session et EntityManager en parametres*/
 	public function __construct(Session $session, EntityManager $em)
 	{
 		$this->session = $session;
