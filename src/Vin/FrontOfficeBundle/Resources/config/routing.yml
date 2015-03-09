@@ -21,3 +21,7 @@ vin_front_office_showAppellation:
 vin_front_office_basket_add:
     path:     /basket/add/{id}
     defaults: { _controller: VinFrontOfficeBundle:Basket:add}
+
+vin_front_office_basket_list:
+    path:     /basket/list
+    defaults: { _controller: VinFrontOfficeBundle:Basket:list }

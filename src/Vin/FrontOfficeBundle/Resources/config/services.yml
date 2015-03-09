@@ -3,4 +3,4 @@ services:
         class: Vin\FrontOfficeBundle\Service\BasketService
         # Arguments: On injecte le composant "Session" de symfony dans le constructeur de la class BasketService
         # ici l'objet session arrivera en tant que premier argument (Session $session)
-        arguments: [ @session ]
+        arguments: [ @session, @doctrine.orm.default_entity_manager ]

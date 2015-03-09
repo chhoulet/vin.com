@@ -21,7 +21,7 @@
 	                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
 	                    <div class="caption-full">
 	                        <h4 class="pull-right">{{ showOneVin.price }} €</h4>
-	                        <h4>{{ showOneVin.nameWine }} {{ showOneVin.title }} {{ showOneVin.domaine.nameDomaine }}<br>
+	                        <h4>{{ showOneVin.nameWine }} {{ showOneVin.title }} {% if showOneVin.domaine %} {{ showOneVin.domaine.nameDomaine }} {% endif %}<br>
                             {{ showOneVin.year }}</h4>
 	                        </h4>
 

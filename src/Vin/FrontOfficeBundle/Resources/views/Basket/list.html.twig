@@ -1,0 +1,29 @@
+{% extends 'VinFrontOfficeBundle::layout.html.twig' %}
+
+    {% block content %}
+
+        {% for vin in vins %}
+            <div class="row text-center">
+
+
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img class="img-responsive img-hover" src="../public/images/{{ vin.slug }}.jpg" alt="vin.slug">
+                        <div class="caption" style ="height:433px;overflow:hidden;">
+                            <h3> {{ vin.nameWine }}</h3><br>
+                            <h4> {{  vin.title }}</h4>
+                            <h4> {{  vin.year }}</h4><br>
+                            <h4 class="pull-right">{{ vin.price }} €</h4><br>
+                            <p>{{ vin.description }}</p>
+                            <p>
+                                <a href="{{ path('vin_front_office_showOneVin',{id:vin.id}) }}" class="btn btn-primary">Voir ce vin  {{ vin.nameWine }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}

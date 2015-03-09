@@ -2,6 +2,7 @@
 
 namespace Vin\FrontOfficeBundle\Service;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class BasketService 
@@ -11,11 +12,13 @@ class BasketService
 	 * @var Session
 	 */
 	private $session;
+    private $em;
 
 	/*le construct sert à construire la classe 'basket', on lui injecte la classe session*/
-	public function __construct(Session $session)
+	public function __construct(Session $session, EntityManager $em)
 	{
 		$this->session = $session;
+        $this->em      = $em;
 	}
 
 	public function add($id)
@@ -33,14 +36,27 @@ class BasketService
         // On empile l'id du vin a la fin du tableau
         $basket[] = $id;
 
-        // On défini le nouveau panier
+        // On définit le nouveau panier
 		$this->session->set('basket', $basket);
 	}
+
+    public function listBasket()
+    {
+//        On recupere le contenu du tableau, qui est un tableau d'id : [4, 54, 23]
+        $basket = $this -> session -> get('basket');
+        $vins = array();
+
+        foreach($basket as $item)
+        {
+//            Recuperation des noms des vins par l'id, on utilise l'em injecte dans services.yml en parametre general, definit dans le construct(Entity Manager())
+            $vins[] = $this -> em ->getRepository('VinFrontOfficeBundle:Vin')->find($item);
+        }
+
+        return $vins;
+    }
 
     public function count()
     {
         return count($this->session->get('basket'));
     }
-
-
 }

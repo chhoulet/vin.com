@@ -18,22 +18,12 @@ class BasketController extends Controller
 		return $this->redirect($referer); // On redirige l'utilisateur vers le referer
 	}
 
-//	public function listAction($id)
-//	{
-//		$em = $this -> getDoctrine()->getManager();
-//		$tab = [];
-//
-//		// les id des vins
-//		$vins = $this -> get('vin_front_office.service.basket')->list($id);
-//
-//		// on parcourt la liste des id vins que l'on a stockés en session
-//		foreach ($vins as $idVin) {
-//			// on remplace les id par les vrais objets récupérés de la BDD
-//			$tab[] = $em -> getRepository('VinFrontOfficeBundle:Vin')->find($idVin);
-//		}
-//
-//		return $tab;
-//	}
+    public function listAction()
+    {
+        $vins = $this-> get('vin_front_office.service.basket')->listBasket();
+
+        return $this -> render('VinFrontOfficeBundle:Basket:list.html.twig', array('vins'=>$vins));
+    }
 
     /**
      * Page sans routing!!
