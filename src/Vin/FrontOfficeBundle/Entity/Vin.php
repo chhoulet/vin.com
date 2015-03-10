@@ -45,7 +45,6 @@ class Vin
 
     /**
      * @var string
-     * @Assert\NotBlank()
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;

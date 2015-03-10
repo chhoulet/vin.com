@@ -16,23 +16,35 @@ class VinType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameWine')
-            ->add('title')
-            ->add('year')
-            ->add('format')
-            ->add('available')
-            ->add('description')
-            ->add('mealWine')
-            ->add('stock')
-            ->add('price')
-            ->add('couleur', 'choice', array(
+            ->add('nameWine','text',       array('label'=>'Quel est le nom du vin ?',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('title', 'text',         array('label'=>'Quel est son classement ?',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('year', 'integer',       array('label'=>'Quel est l\'année ?',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('format', 'text',        array('label'=>'Format de la bouteille ?',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('available','text',      array('label'=>'Disponibilité ?',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('description', 'text',   array('label'=>'Description du vin :',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('mealWine', 'text',      array('label'=>'Description des accords mets-vin :',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('stock', 'integer',      array('label'=>'Nombre de bouteilles sourcées :',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('price', 'integer',      array('label'=>'Prix unitaire :',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('couleur', 'choice',     array(
                 /*Définition du choix de la couleur en appellant une méthode statique, getCouleurs()*/
-                'choices'   => Vin::getCouleurs()
+                                                 'choices'   => Vin::getCouleurs()
             ))
-            ->add('region')
-            ->add('domaine')
-            ->add('appellation')
-            ->add('valider','submit')
+            ->add('region', null,          array('label'=>'Région de production :',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('domaine', 'text',       array('label'=>'Domaine de production :',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('appellation', 'text',   array('label'=>'Appellation de production :',
+                                                 'attr' => array('class'=>'form-control')))
+            ->add('valider','submit',      array('attr' => array('class'=>'btn btn-default')))
         ;
     }
     
