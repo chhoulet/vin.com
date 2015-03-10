@@ -1,0 +1,18 @@
+{% extends 'VinBackOfficeBundle::layout.html.twig' %}
+
+    {% block content %}
+
+        <div style="width:450px;border:solid black 1px;border-radius:8px;text-align:center;margin:auto;">
+
+            <h3>Liste des messages</h3>
+
+                {% for vin in showMessage %}
+                    Username : {{ vin.username }}<br><br>
+                    Message  : {{ vin.content  }}<br><br>
+                    Email    : {{ vin.emailMessage  }}<br><br>
+                    Date     : {{ vin.dateMessage | date('d-m-Y H:i:s') }}<br><br>
+                {% endfor %}
+
+        </div>
+
+    {% endblock %}
