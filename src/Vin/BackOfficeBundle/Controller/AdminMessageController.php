@@ -14,4 +14,14 @@ class AdminMessageController extends Controller
         return $this -> render('VinBackOfficeBundle:AdminMessage:showMessage.html.twig',
             array('showMessage'=>$showMessage));
     }
+
+    public function suppMessageAction($id)
+    {
+        $em = $this -> getDoctrine()-> getManager();
+        $suppMessage = $em -> getRepository('VinFrontOfficeBundle:Message')->find($id);
+        $em -> remove($suppMessage);
+        $em -> flush();
+
+        return $this -> redirect($this->generateUrl('vin_back_office_bundle_message'));
+    }
 }
