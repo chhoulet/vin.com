@@ -16,7 +16,7 @@ class MessageController extends Controller
     {
         $em = $this -> getDoctrine() -> getManager();
         $message = new Message();
-        $form = $this -> createForm(new MessageType(),$message);
+        $form = $this -> createForm(new MessageType(),$message, ['action'=> $this-> generateUrl('vin_front_office_bundle_message')]);
 
         $form -> handleRequest($request);
 

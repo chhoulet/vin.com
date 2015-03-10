@@ -49,6 +49,14 @@ class Message
      */
     private $emailMessage;
 
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Vin\FrontOfficeBundle\Entity\Vin", inversedBy="messages")
+     * JoinColumn(name="vin_id", referencedColumnName="id")
+     */
+    private $vin;
+
 
     /**
      * Get id
@@ -150,5 +158,28 @@ class Message
     public function getEmailMessage()
     {
         return $this->emailMessage;
+    }
+
+    /**
+     * Set vin
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Vin $vin
+     * @return Message
+     */
+    public function setVin(\Vin\FrontOfficeBundle\Entity\Vin $vin = null)
+    {
+        $this->vin = $vin;
+
+        return $this;
+    }
+
+    /**
+     * Get vin
+     *
+     * @return \Vin\FrontOfficeBundle\Entity\Vin 
+     */
+    public function getVin()
+    {
+        return $this->vin;
     }
 }

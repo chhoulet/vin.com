@@ -126,6 +126,13 @@ class Vin
     private $price;
 
     /**
+     * @var integer
+     * @ORM\OneToMany(targetEntity="Vin\FrontOfficeBundle\Entity\Message", mappedBy="vin")
+     */
+    private $messages;
+
+
+    /**
      * @var string
      *
      * @ORM\ManyToOne(targetEntity="Vin\FrontOfficeBundle\Entity\Region", inversedBy="vin")
@@ -522,5 +529,45 @@ class Vin
     public function getSlug()
     {
         return $this->slug;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->messages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add messages
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Message $messages
+     * @return Vin
+     */
+    public function addMessage(\Vin\FrontOfficeBundle\Entity\Message $messages)
+    {
+        $this->messages[] = $messages;
+
+        return $this;
+    }
+
+    /**
+     * Remove messages
+     *
+     * @param \Vin\FrontOfficeBundle\Entity\Message $messages
+     */
+    public function removeMessage(\Vin\FrontOfficeBundle\Entity\Message $messages)
+    {
+        $this->messages->removeElement($messages);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMessages()
+    {
+        return $this->messages;
     }
 }
