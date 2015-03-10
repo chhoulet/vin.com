@@ -25,4 +25,14 @@ class AppellationRepository extends EntityRepository
 
 		return $query -> getResult();
 	}
+
+    public function nbAppellation()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT COUNT(a.id)
+            FROM VinFrontOfficeBundle:Appellation a
+        ');
+
+        return $query -> getSingleScalarResult();
+    }
 }

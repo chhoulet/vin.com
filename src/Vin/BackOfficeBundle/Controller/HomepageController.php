@@ -10,8 +10,10 @@ class HomepageController extends Controller
 {
     public function homepageAction(Request $request)
     {
+        $em = $this -> getDoctrine()->getManager();
+
+        $nbAppellation = $em -> getRepository('VinFrontOfficeBundle:Appellation')->nbAppellation();
 ////      Fonction de selection des vins par etat des stocks :
-//        $em = $this -> getDoctrine()->getManager();
 //        $formStock = $this -> createForm(new stockType());
 //
 //        $formStock -> handleRequest($request);
@@ -23,7 +25,8 @@ class HomepageController extends Controller
 //            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig', array('showVins'=>$stock));
 //        }
 ////        return $this->render('VinFrontOfficeBundle:Homepage:homepage.html.twig', array('formStock'=>$formStock->createView()));
-        return $this -> render('VinBackOfficeBundle:Homepage:homepage.html.twig');
+        return $this -> render('VinBackOfficeBundle:Homepage:homepage.html.twig',
+            array('nbAppellation'=>$nbAppellation));
     }
 
     
