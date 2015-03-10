@@ -48,5 +48,15 @@ class VinRepository extends EntityRepository
         return $query -> getResult();
     }
 
+    public function nbVins()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT COUNT(v.id)
+            FROM VinFrontOfficeBundle:Vin v
+        ');
+
+        return $query -> getSingleScalarResult();
+    }
+
 }
 
