@@ -8,6 +8,8 @@ use Vin\FrontOfficeBundle\Entity\Vin;
 
 use Vin\FrontOfficeBundle\Form\VinType;
 
+use Vin\FrontOfficeBundle\Entity\VinRepository;
+
 use Symfony\Component\HttpFoundation\Request;
 
 class AdminVinController extends Controller
@@ -18,8 +20,17 @@ class AdminVinController extends Controller
 		$em = $this -> getDoctrine()->getManager();
 		$showVin = $em -> getRepository('VinFrontOfficeBundle:Vin')->findAll();
 
-		return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig',array('showVin'=>$showVin));
+		return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig', array('showVin'=>$showVin));
 	}
+
+    //Tri des vins par prix
+    public function lowPriceVinAction()
+    {
+        $em = $this ->getDoctrine()->getManager();
+        $getVinLowPrice = $em -> getRepository('VinFrontOfficeBundle:Vin')->getVinLowPrice();
+
+        return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig', array('showVin'=>$getVinLowPrice));
+    }
 
 	/*Ajoût d'un vin en BDD*/
 	public function creationVinAction (Request $request)
