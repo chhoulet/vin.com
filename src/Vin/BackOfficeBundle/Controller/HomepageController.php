@@ -14,6 +14,9 @@ class HomepageController extends Controller
 
         $nbAppellation = $em -> getRepository('VinFrontOfficeBundle:Appellation')->nbAppellation();
         $nbVins = $em -> getRepository('VinFrontOfficeBundle:Vin')->nbVins();
+        $vinLowPrice = $em -> getRepository('VinFrontOfficeBundle:Vin')->vinLowPrice();
+
+
 ////      Fonction de selection des vins par etat des stocks :
 //        $formStock = $this -> createForm(new stockType());
 //
@@ -28,7 +31,8 @@ class HomepageController extends Controller
 ////        return $this->render('VinFrontOfficeBundle:Homepage:homepage.html.twig', array('formStock'=>$formStock->createView()));
         return $this -> render('VinBackOfficeBundle:Homepage:homepage.html.twig',
             array('nbAppellation'=>$nbAppellation,
-                  'nbVins'       =>$nbVins));
+                  'nbVins'       =>$nbVins,
+                  'vinLowPrice'  =>$vinLowPrice));
     }
 
     

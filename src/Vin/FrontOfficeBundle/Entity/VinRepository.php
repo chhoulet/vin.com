@@ -58,5 +58,18 @@ class VinRepository extends EntityRepository
         return $query -> getSingleScalarResult();
     }
 
+    public function vinLowPrice()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT COUNT(v.id)
+            FROM VinFrontOfficeBundle:Vin v
+            WHERE v.price < 20');
+
+        return $query -> getSingleScalarResult();
+    }
+
+
+   
+
 }
 
