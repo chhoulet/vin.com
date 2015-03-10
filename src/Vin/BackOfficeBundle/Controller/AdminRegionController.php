@@ -29,6 +29,7 @@ class AdminRegionController extends Controller
 		$form -> handleRequest($request);
 
 		if($form -> isValid()){
+            $region -> setSlug($region->getNameRegion());
 			$em -> persist($region);
 			$em -> flush();
 
