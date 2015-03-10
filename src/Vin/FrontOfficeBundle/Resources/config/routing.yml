@@ -31,4 +31,8 @@ vin_front_office_bundle_message:
     path:     /message/create/{id}
     defaults: { _controller:VinFrontOfficeBundle:Message:createmessage}
 
+vin_front_office_bundle_contact:
+    path:     /contact
+    defaults: { _controller:VinFrontOfficeBundle:Contact:contact}
+
 
