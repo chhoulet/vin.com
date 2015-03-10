@@ -4,6 +4,8 @@ namespace Vin\FrontOfficeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Message
  *
@@ -32,6 +34,12 @@ class Message
      * @var string
      *
      * @ORM\Column(name="content", type="text")
+     * @Assert\Length(
+     *      min = "2",
+     *      max = "50",
+     *      minMessage = "Votre nom doit faire au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom ne peut pas être plus long que {{ limit }} caractères"
+     * )
      */
     private $content;
 
@@ -46,6 +54,11 @@ class Message
      * @var string
      *
      * @ORM\Column(name="emailMessage", type="string", length=255)
+     * @Assert\Email(
+     *     message = "'{{ value }}' n'est pas un email valide.",
+     *     checkMX = true
+     * )
+     *
      */
     private $emailMessage;
 

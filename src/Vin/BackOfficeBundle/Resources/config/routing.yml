@@ -73,7 +73,7 @@ vin_back_office_suppDomaine:
 
 #Gestion des commentaires:
 vin_back_office_bundle_message:
-    path:     /Message/show
+    path:     /Message/show/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminMessage:showMessage}
 
 vin_back_office_bundle_suppMessage:

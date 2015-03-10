@@ -30,8 +30,8 @@
                             <a href="{{ path('vin_front_office_basket_add',{id:showOneVin.id}) }}" class="btn btn-primary" style="margin-left:365px;">Ajouter au panier</a>
 	                    </div>
 
-                        {{  render(controller('VinFrontOfficeBundle:Message:createmessage')) }}<br><br>
-                        {{  render(controller('VinBackOfficeBundle:AdminMessage:showMessage')) }}<br><br>
+                        {{  render(controller('VinFrontOfficeBundle:Message:createmessage',{id:showOneVin.id})) }}<br><br>
+                        {{  render(controller('VinBackOfficeBundle:AdminMessage:showMessage',{id:showOneVin.id})) }}<br><br>
 
 	                </div>
 

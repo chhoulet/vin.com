@@ -24,11 +24,11 @@ vin_front_office_basket_add:
 
 vin_front_office_basket_list:
     path:     /basket/list
-    defaults: { _controller: VinFrontOfficeBundle:Basket:list }
+    defaults: { _controller: VinFrontOfficeBundle:Basket:list}
 
 #Route definissant la gestion des messages & commentaires
 vin_front_office_bundle_message:
-    path:     /message/create
+    path:     /message/create/{id}
     defaults: { _controller:VinFrontOfficeBundle:Message:createmessage}
 
 
