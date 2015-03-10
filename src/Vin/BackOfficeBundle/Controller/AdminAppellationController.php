@@ -30,6 +30,7 @@ class AdminAppellationController extends Controller
 		$form -> handleRequest($request);
 
 		if($form -> isValid()){
+            $appellation -> setSlug($appellation->getNameAppellation());
 			$em -> persist($appellation);
 			$em -> flush();
 

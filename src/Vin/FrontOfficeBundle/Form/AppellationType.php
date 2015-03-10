@@ -15,11 +15,15 @@ class AppellationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameAppellation')
-            ->add('slug')
-            ->add('descriptionAppellation')
-            ->add('region')
-            ->add('valider','submit')
+            ->add('nameAppellation', 'text',       array('label'=>'Quel est le nom d\'appellation ?',
+                                                         'attr' => array('class'=>'form-control')))
+            ->add('descriptionAppellation','text', array('label'=>'Décrivez l\'appellation créée :',
+                                                         'attr' => array('class'=>'form-control')))
+            ->add('vue','text',                    array('label'=>'Nom de l\'image associée :',
+                                                         'attr' => array('class'=>'form-control')))
+            ->add('region', null,                  array('label'=>'Quelle est la région de rattachement ?',
+                                                         'attr' => array('class'=>'form-control')))
+            ->add('valider','submit',              array('attr'=>array('class'=>'btn btn-default')))
         ;
     }
     
