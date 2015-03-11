@@ -90,6 +90,20 @@ class VinRepository extends EntityRepository
         return $query -> getSingleScalarResult();
     }
 
+    public function nbPomerol()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT COUNT(v.id)
+            FROM VinFrontOfficeBundle:Vin v
+            JOIN v.appellation a
+            WHERE a.nameAppellation LIKE :pomerol')
+        ->setParameter('pomerol','%omerol%');
+
+        return $query -> getSingleScalarResult();
+    }
+
+   
+
 
 
 }

@@ -16,6 +16,7 @@ class HomepageController extends Controller
         $nbVins = $em -> getRepository('VinFrontOfficeBundle:Vin')->nbVins();
         $vinLowPrice = $em -> getRepository('VinFrontOfficeBundle:Vin')->vinLowPrice();
         $getStockByRegion = $em -> getRepository('VinFrontOfficeBundle:Vin')->getStockByRegion();
+        $nbPomerol = $em -> getRepository('VinFrontOfficeBundle:Vin')->nbPomerol();
 
 
 ////      Fonction de selection des vins par etat des stocks :
@@ -34,7 +35,8 @@ class HomepageController extends Controller
             array('nbAppellation'    => $nbAppellation,
                   'nbVins'           => $nbVins,
                   'vinLowPrice'      => $vinLowPrice,
-                  'getStockByRegion' => $getStockByRegion  ));
+                  'getStockByRegion' => $getStockByRegion,
+                  'nbPomerol'        => $nbPomerol));
     }
 
     
