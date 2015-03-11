@@ -2,7 +2,7 @@ vin_back_office_homepage:
     path:     /accueilBackOffice
     defaults: { _controller: VinBackOfficeBundle:Homepage:homepage }
 
-#Administration du Front-office: gestion Vin
+#Administration du Front-office / Stats du BO: gestion Vin
 vin_back_office_showVin:
     path:     /Vin/show 
     defaults: { _controller:VinBackOfficeBundle:AdminVin:showVin}
@@ -10,6 +10,10 @@ vin_back_office_showVin:
 vin_back_office_bundle_lowVin:
     path:     /Vin/lowPrice
     defaults: { _controller:VinBackOfficeBundle:AdminVin:lowPriceVin}
+
+vin_back_office_mostExpensiveVins :
+    path:     /Vin/mostExpensiveSauternes
+    defaults: { _controller:VinBackOfficeBundle:AdminVin:vinMostExpensive}
 
 vin_back_office_creationVin:
     path:     /Vin/creation

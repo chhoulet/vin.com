@@ -102,9 +102,47 @@ class VinRepository extends EntityRepository
         return $query -> getSingleScalarResult();
     }
 
-   
+    public function vinsMostExpensive()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT v
+            FROM VinFrontOfficeBundle:Vin v
+            JOIN v.appellation a
+            WHERE a.nameAppellation LIKE :sauternes
+            ORDER BY v.price DESC')
+        ->setParameter('sauternes','%auternes%')
+        ->setMaxResults(4);
+
+        return $query ->getResult();
+    }
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

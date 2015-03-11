@@ -20,7 +20,8 @@ class AdminVinController extends Controller
 		$em = $this -> getDoctrine()->getManager();
 		$showVin = $em -> getRepository('VinFrontOfficeBundle:Vin')->findAll();
 
-		return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig', array('showVin'=>$showVin));
+		return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig',
+            array('showVin'=>$showVin));
 	}
 
     //Tri des vins par prix
@@ -29,7 +30,18 @@ class AdminVinController extends Controller
         $em = $this ->getDoctrine()->getManager();
         $getVinLowPrice = $em -> getRepository('VinFrontOfficeBundle:Vin')->getVinLowPrice();
 
-        return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig', array('showVin'=>$getVinLowPrice));
+        return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig',
+            array('showVin'=>$getVinLowPrice));
+    }
+
+   //Affichage des Sauternes les plus chers:
+    public function vinMostExpensiveAction()
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $vinMostExpensive = $em -> getRepository('VinFrontOfficeBundle:Vin')->vinsMostExpensive();
+
+        return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig',
+            array('showVin'=>$vinMostExpensive));
     }
 
 	/*Ajoût d'un vin en BDD*/
