@@ -44,6 +44,16 @@ class AdminVinController extends Controller
             array('showVin'=>$vinMostExpensive));
     }
 
+    //Affichage des vins par prix - region- couleur:
+    public function vinBourgogneAction()
+    {
+        $em = $this -> getDoctrine()-> getManager();
+        $vinBourgogne = $em -> getRepository('VinFrontOfficeBundle:Vin')->vinBourgogne();
+
+        return $this -> render('VinBackOfficeBundle:AdminVin:showVin.html.twig',
+            array('showVin'=>$vinBourgogne));
+    }
+
 	/*Ajoût d'un vin en BDD*/
 	public function creationVinAction (Request $request)
 	{

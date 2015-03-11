@@ -116,6 +116,44 @@ class VinRepository extends EntityRepository
         return $query ->getResult();
     }
 
+    public function vinBourgogne()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT v
+            FROM VinFrontOfficeBundle:Vin v
+            JOIN v.region r
+            WHERE r.nameRegion LIKE :chablis
+            AND v.price < 30')
+        ->setParameter('chablis','%ourgogne%');
+
+        return $query -> getResult();
+    }
+
+
+    public function countBourgogne()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT COUNT(v.id)
+            FROM VinFrontOfficeBundle:Vin v
+            JOIN v.region r
+            WHERE r.nameRegion LIKE :bourgogne
+            AND v.price <20')
+        ->setParameter('bourgogne','%ourgogne%');
+
+        return $query -> getSingleScalarResult();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

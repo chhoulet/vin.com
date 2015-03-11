@@ -15,6 +15,10 @@ vin_back_office_mostExpensiveVins :
     path:     /Vin/mostExpensiveSauternes
     defaults: { _controller:VinBackOfficeBundle:AdminVin:vinMostExpensive}
 
+vin_back_office_bourgogne:
+    path:     /Vin/bourgogne
+    defaults: { _controller:VinBackOfficeBundle:AdminVin:vinBourgogne}
+
 vin_back_office_creationVin:
     path:     /Vin/creation
     defaults: { _controller: VinBackOfficeBundle:AdminVin:creationVin}
