@@ -5,6 +5,7 @@ namespace Vin\FrontOfficeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Vin\FrontOfficeBundle\Form\PriceType;
 use Vin\FrontOfficeBundle\Form\ColorType;
+use Vin\FrontOfficeBundle\Form\YearType;
 use Symfony\Component\HttpFoundation\Request;
 
 class HomePageController extends Controller
@@ -18,8 +19,6 @@ class HomePageController extends Controller
     	$bordeaux = $em -> getRepository('VinFrontOfficeBundle:Vin') -> bordeaux();
 
 // Selection des vins par prix :
-
-
         $formPrice = $this -> createForm(new PriceType());
 
         $formPrice ->handleRequest($request);
@@ -32,7 +31,7 @@ class HomePageController extends Controller
                 array('showVins' => $price));
         }
 
-
+//Selection des vins par couleur:
         $formColor = $this -> createForm(new ColorType());
 
         $formColor ->handleRequest($request);
@@ -46,13 +45,29 @@ class HomePageController extends Controller
                 array('showVins'=>$color));
         }
 
+//Selection des vins par année:
+        $formYear = $this -> createForm(new YearType());
+
+        $formYear -> handleRequest($request);
+
+        if($formYear -> isValid()){
+            $data = $formYear ->getData($formYear);
+            $year = $em -> getRepository('VinFrontOfficeBundle:Vin')->findByYear($data['year']);
+
+            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig',
+                array('showVins'=>$year));
+        }
+
+
+
         return $this->render('VinFrontOfficeBundle:HomePage:homepage.html.twig',
         	array('showRegions'  => $showRegions,
         		  'vins'         => $vins,
         		  'vinDuMois'    => $vinDuMois,
         		  'bordeaux'     => $bordeaux,
                   'formPrice'    => $formPrice->createView(),
-                  'formColor'    => $formColor->createView()
+                  'formColor'    => $formColor->createView(),
+                  'formYear'     => $formYear->createView()
                   ));
     }
 }
