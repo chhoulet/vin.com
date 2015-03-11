@@ -76,8 +76,21 @@ class VinRepository extends EntityRepository
             WHERE v.price <20');
 
         return $query->getResult();
-
     }
+
+    public function getStockByRegion()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+           SELECT COUNT(v.id)
+           FROM VinFrontOfficeBundle:Vin v
+           JOIN v.region r
+           WHERE r.nameRegion LIKE :region')
+        ->setParameter('region', '%ordeaux%');
+
+        return $query -> getSingleScalarResult();
+    }
+
+
 
 }
 
