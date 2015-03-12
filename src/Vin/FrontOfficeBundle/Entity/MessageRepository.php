@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class MessageRepository extends EntityRepository
 {
+    public function countMessages()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT COUNT(m.id)
+            FROM VinFrontOfficeBundle:Message m');
+
+        return $query ->getSingleScalarResult();
+    }
+
 }
