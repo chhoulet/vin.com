@@ -17,22 +17,23 @@ class HomepageController extends Controller
         $vinLowPrice = $em -> getRepository('VinFrontOfficeBundle:Vin')->vinLowPrice();
         $getStockByRegion = $em -> getRepository('VinFrontOfficeBundle:Vin')->getStockByRegion();
         $nbPomerol = $em -> getRepository('VinFrontOfficeBundle:Vin')->nbPomerol();
-        $countBourgogne = $em ->getRepository('VinFrontOfficeBundle:Vin')->countBourgogne();
+        $countBourgogne = $em ->getRepository('VinFrontOfficeBundle:Vin')->countRegion('Bourgogne');
+        $countBordeaux = $em ->getRepository('VinFrontOfficeBundle:Vin')->countRegion('Bordeaux');
         $countMessages = $em ->getRepository('VinFrontOfficeBundle:Message')->countMessages();
 
 
-////      Fonction de selection des vins par etat des stocks :
-//        $formStock = $this -> createForm(new stockType());
-//
-//        $formStock -> handleRequest($request);
-//        if($formStock -> isValid())
-//        {
-//            $data = $formStock->getData();
-//            $stock = $em -> getRepository('FrontOfficeBundle:Vin')->findByStock($data['stock']);
-//
-//            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig', array('showVins'=>$stock));
-//        }
-////        return $this->render('VinFrontOfficeBundle:Homepage:homepage.html.twig', array('formStock'=>$formStock->createView()));
+//      Fonction de selection des vins par etat des stocks :
+        $formStock = $this -> createForm(new stockType());
+
+        $formStock -> handleRequest($request);
+        if($formStock -> isValid())
+        {
+            $data = $formStock->getData();
+            $stock = $em -> getRepository('FrontOfficeBundle:Vin')->stockVin($data['stock']);
+
+            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig', array('showVins'=>$stock));
+        }
+        return $this->render('VinFrontOfficeBundle:Homepage:homepage.html.twig', array('formStock'=>$formStock->createView()));
 
         return $this -> render('VinBackOfficeBundle:Homepage:homepage.html.twig',
             array('nbAppellation'    => $nbAppellation,
@@ -41,7 +42,8 @@ class HomepageController extends Controller
                   'getStockByRegion' => $getStockByRegion,
                   'nbPomerol'        => $nbPomerol,
                   'countBourgogne'   => $countBourgogne,
-                  'countMessages'   => $countMessages));
+                  'countBordeaux'    => $countBordeaux,
+                  'countMessages'    => $countMessages));
     }
 
 }

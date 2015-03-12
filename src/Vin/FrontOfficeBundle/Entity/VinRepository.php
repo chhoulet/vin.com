@@ -130,18 +130,33 @@ class VinRepository extends EntityRepository
     }
 
 
-    public function countBourgogne()
+    public function countRegion($region)
     {
         $query = $this -> getEntityManager()->createQuery('
             SELECT COUNT(v.id)
             FROM VinFrontOfficeBundle:Vin v
             JOIN v.region r
             WHERE r.nameRegion LIKE :bourgogne
-            AND v.price <20')
-        ->setParameter('bourgogne','%ourgogne%');
+            AND v.price < 20
+            AND v.year < 2010')
+        ->setParameter('bourgogne', $region);
 
         return $query -> getSingleScalarResult();
     }
+
+    public function stockVin($quantite)
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT v
+            FROM VinFrontOfficeBundle:Vin v
+            WHERE v.stock < :nombre')
+
+        ->setParameter('nombre',$quantite);
+
+        return $query -> getResult();
+    }
+
+
 
 
 

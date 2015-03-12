@@ -4,6 +4,7 @@ namespace Vin\FrontOfficeBundle\Service;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Vin\FrontOfficeBundle\Entity\Basket;
 
 class BasketService 
 {
@@ -38,6 +39,15 @@ class BasketService
 
         // On définit le nouveau panier
 		$this->session->set('basket', $basket);
+
+//        $vin = $this->em->getRepository('VinFrontOfficeBundle:Vin')->find($id);
+//        $basket = new Basket();
+//        $basket->setVin($vin);
+//        $basket->setQuantity(1);
+//        $basket->setPriceUnit($vin->getPrice());
+//
+//        $this->em->persist($basket);
+//        $this->em->flush();
 	}
 
     public function listBasket()

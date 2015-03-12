@@ -66,7 +66,7 @@ vin_back_office_suppAppellation:
     path:     /Appellation/supp/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminAppellation:suppAppellation}
 
-#Administration du Front-office: getion Domaine
+#Administration du Front-office: gestion Domaine
 vin_back_office_showDomaine:
     path:     /Domaine/show
     defaults: { _controller:VinBackOfficeBundle:AdminDomaine:showDomaine}
@@ -84,9 +84,11 @@ vin_back_office_suppDomaine:
     defaults: { _controller:VinBackOfficeBundle:AdminDomaine:SuppDomaine}
 
 #Gestion des commentaires:
+vin_back_office_showMessages:
+    path:     /Message/show
+    defaults: { _controller:VinBackOfficeBundle:AdminMessage:showMessages}
 
-
-vin_back_office_bundle_suppMessage:
+vin_back_office_suppMessage:
     path:     /Message/supp/{id}
     defaults: { _controller:VinBackOfficeBundle:AdminMessage:suppMessage}
 
