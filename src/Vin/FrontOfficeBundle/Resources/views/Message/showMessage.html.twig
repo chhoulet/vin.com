@@ -1,4 +1,4 @@
-{% extends 'VinBackOfficeBundle::layout.html.twig' %}
+{% extends 'VinFrontOfficeBundle::layout.html.twig' %}
 
     {% block content %}
 
@@ -12,7 +12,6 @@
                 Email    : {{ vin.emailMessage  }}<br><br>
                 Date     : {{ vin.dateMessage | date('d-m-Y H:i:s') }}<br><br>
 
-                <a href="{{ path('vin_back_office_bundle_suppMessage',{id:vin.id}) }}" class="btn btn-default" style="margin-bottom:25px;margin-top:15px">Supprimer ce commentaire</a><br><br>
             {% endfor %}
 
         </div>

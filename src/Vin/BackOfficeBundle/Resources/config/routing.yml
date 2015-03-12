@@ -84,9 +84,7 @@ vin_back_office_suppDomaine:
     defaults: { _controller:VinBackOfficeBundle:AdminDomaine:SuppDomaine}
 
 #Gestion des commentaires:
-vin_back_office_bundle_message:
-    path:     /Message/show/{id}
-    defaults: { _controller:VinBackOfficeBundle:AdminMessage:showMessage}
+
 
 vin_back_office_bundle_suppMessage:
     path:     /Message/supp/{id}

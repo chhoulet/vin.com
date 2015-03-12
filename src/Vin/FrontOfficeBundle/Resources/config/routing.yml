@@ -11,6 +11,7 @@ vin_front_office_showVinsAppellations:
 vin_front_office_showOneVin:
     path:     /showOneVin/{id}
     defaults: { _controller:VinFrontOfficeBundle:Vin:showOneVin}
+    methods: [GET, POST]
 
 #Routes definissant la gestion de la page 'appellation'
 vin_front_office_showAppellation:
@@ -27,7 +28,11 @@ vin_front_office_basket_list:
     defaults: { _controller: VinFrontOfficeBundle:Basket:list}
 
 #Route definissant la gestion des messages & commentaires
-vin_front_office_bundle_message:
+vin_front_office_bundle_message_show:
+    path:     /message/show/{id}
+    defaults: { _controller:VinFrontOfficeBundle:Message:showMessage}
+
+vin_front_office_bundle_message_create:
     path:     /message/create/{id}
     defaults: { _controller:VinFrontOfficeBundle:Message:createmessage}
 

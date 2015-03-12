@@ -6,15 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdminMessageController extends Controller
 {
-    public function showMessageAction($id)
-    {
-        $em = $this -> getDoctrine()->getManager();
-        $showMessage = $em -> getRepository('VinFrontOfficeBundle:Message')->findByVin($id);
-
-        return $this -> render('VinBackOfficeBundle:AdminMessage:showMessage.html.twig',
-            array('showMessage'=>$showMessage));
-    }
-
     public function suppMessageAction($id)
     {
         $em = $this -> getDoctrine()-> getManager();

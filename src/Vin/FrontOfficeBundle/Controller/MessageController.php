@@ -12,13 +12,23 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MessageController extends Controller
 {
-    public function createmessageAction(Request $request, $id)
+    public function showMessageAction($id)
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $showMessage = $em -> getRepository('VinFrontOfficeBundle:Message')->findByVin($id);
+
+        return $this -> render('VinFrontOfficeBundle:Message:showMessage.html.twig',
+            array('showMessage'=>$showMessage));
+    }
+
+    /*public function createmessageAction(Request $request, $id)
     {
         $em = $this -> getDoctrine() -> getManager();
         $message = new Message();
         $vin = $em -> getRepository('VinFrontOfficeBundle:Vin')->find($id);
-        $form = $this -> createForm(new MessageType(),$message,
-            ['action'=> $this-> generateUrl('vin_front_office_bundle_message',['id'=>$id])]);
+        $form = $this -> createForm(new MessageType(), $message, [
+            //'action'=> $this-> generateUrl('vin_front_office_bundle_message_create',['id'=>$id])
+        ]);
 
         $form -> handleRequest($request);
 
@@ -32,5 +42,5 @@ class MessageController extends Controller
         }
 
         return $this -> render('VinFrontOfficeBundle:Message:message.html.twig',array('form'=>$form->createView()));
-    }
+    }*/
 }
