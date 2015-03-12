@@ -119,7 +119,7 @@ class Vin
 
      /**
      * @var float
-     * @Assert\Type(type="float", message="La valeur {{ value }} n'est pas un type {{ type }} valide.")
+     * @Assert\Type(type="numeric", message="La valeur {{ value }} n'est pas un type {{ type }} valide.")
      * @ORM\Column(name="price", type="float")
      */
     private $price;

@@ -19,7 +19,7 @@ class DomaineType extends AbstractType
                                                       'attr' => array('class' => 'form-control')))
             ->add('descriptionDomaine', 'text', array('label' => 'Décrivez le domaine créé :',
                                                       'attr' => array('class' => 'form-control')))
-            ->add('appellation','text',         array('label' => 'Quelle est l\'appellation de rattachement ?',
+            ->add('appellation',null,         array('label' => 'Quelle est l\'appellation de rattachement ?',
                                                       'attr' => array('class' => 'form-control')))
             ->add('region', null,               array('label' => 'Quelle est la région de rattachement ?',
                                                       'attr' => array('class' => 'form-control')))

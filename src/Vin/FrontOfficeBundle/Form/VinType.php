@@ -40,9 +40,9 @@ class VinType extends AbstractType
             ))
             ->add('region', null,          array('label'=>'Région de production :',
                                                  'attr' => array('class'=>'form-control')))
-            ->add('domaine', 'text',       array('label'=>'Domaine de production :',
+            ->add('domaine', null,       array('label'=>'Domaine de production :',
                                                  'attr' => array('class'=>'form-control')))
-            ->add('appellation', 'text',   array('label'=>'Appellation de production :',
+            ->add('appellation', null,   array('label'=>'Appellation de production :',
                                                  'attr' => array('class'=>'form-control')))
             ->add('valider','submit',      array('attr' => array('class'=>'btn btn-default')))
         ;
