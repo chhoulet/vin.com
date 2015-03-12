@@ -11,7 +11,7 @@ class AdminMessageController extends Controller
         $em = $this -> getDoctrine()->getManager();
         $showMessages = $em -> getRepository('VinFrontOfficeBundle:Vin')->findAll();
 
-        return $rhis ->render('VinBackOfficeBundle:AdminMessage:showMessage.html.twig',
+        return $this ->render('VinBackOfficeBundle:AdminMessage:showMessage.html.twig',
             array('showMessages' => $showMessages));
 
     }
