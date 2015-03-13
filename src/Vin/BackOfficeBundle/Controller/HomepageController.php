@@ -29,11 +29,10 @@ class HomepageController extends Controller
         if($formStock -> isValid())
         {
             $data = $formStock->getData();
-            $stock = $em -> getRepository('FrontOfficeBundle:Vin')->stockVin($data['stock']);
+            $stock = $em -> getRepository('VinFrontOfficeBundle:Vin')->stockVin($data['stock']);
 
             return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig', array('showVins'=>$stock));
         }
-        return $this->render('VinFrontOfficeBundle:Homepage:homepage.html.twig', array('formStock'=>$formStock->createView()));
 
         return $this -> render('VinBackOfficeBundle:Homepage:homepage.html.twig',
             array('nbAppellation'    => $nbAppellation,
@@ -43,7 +42,8 @@ class HomepageController extends Controller
                   'nbPomerol'        => $nbPomerol,
                   'countBourgogne'   => $countBourgogne,
                   'countBordeaux'    => $countBordeaux,
-                  'countMessages'    => $countMessages));
+                  'countMessages'    => $countMessages,
+                  'formStock'        => $formStock ->createView()));
     }
 
 }

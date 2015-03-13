@@ -10,7 +10,7 @@ use Vin\FrontOfficeBundle\Form\MessageType;
 
 class ContactController extends Controller
 {
-    public function contactAction(Request $request, $content)
+    public function contactAction(Request $request)
     {
 
         $form = $this -> createForm(new MessageType());
