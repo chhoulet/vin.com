@@ -3,6 +3,11 @@ vin_front_office_homepage:
     path:     /accueil
     defaults: { _controller: VinFrontOfficeBundle:HomePage:homePage}
 
+#Routes definissant l'onglet statique:
+vin_front_office_static_mentions:
+    path:     /static/mentions
+    defaults: { _controller:VinFrontOfficeBundle:Static:showMentions}
+
 #Routes definissant la gestion des pages 'vins'
 vin_front_office_showVinsAppellations:
     path:     /showVinsAppellation/Vins/{slug}
