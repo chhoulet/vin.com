@@ -29,7 +29,7 @@ class AdminDomaineController extends Controller
 		$form -> handleRequest($request);
 
 		if($form -> isValid()){
-//          $creationDomaine -> setSlug($creationDomaine->getNameDomaine());
+          $creationDomaine -> setSlug($creationDomaine->getNameDomaine());
 			$em -> persist($creationDomaine);
 			$em -> flush();
 
