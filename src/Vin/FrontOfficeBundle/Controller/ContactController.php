@@ -10,15 +10,18 @@ use Vin\FrontOfficeBundle\Form\MessageType;
 
 class ContactController extends Controller
 {
-    public function contactAction(Request $request)
+    public function contactAction(Request $request, $content)
     {
+
         $form = $this -> createForm(new MessageType());
 
         $form -> handleRequest($request);
 
         if($form -> isValid()){
+            $data = $form ->getData();
+            $content = $data['content'];
 
-
+            $this -> get('vin_front_office.service.emailservice')->send($content);
             return $this -> redirect($this -> generateUrl('vin_front_office_homepage'));
         }
 
