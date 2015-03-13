@@ -8,6 +8,10 @@ vin_front_office_static_mentions:
     path:     /static/mentions
     defaults: { _controller:VinFrontOfficeBundle:Static:showMentions}
 
+vin_front_office_static_conditions_generales_vente:
+    path:     /static/conditions
+    defaults: { _controller:VinFrontOfficeBundle:Static:showConditions}
+
 #Routes definissant la gestion des pages 'vins'
 vin_front_office_showVinsAppellations:
     path:     /showVinsAppellation/Vins/{slug}

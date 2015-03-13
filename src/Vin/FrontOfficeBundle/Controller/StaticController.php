@@ -10,4 +10,9 @@ class StaticController extends Controller
     {
         return $this -> render('VinFrontOfficeBundle:Static:mentions.html.twig');
     }
+
+    public function showConditionsAction()
+    {
+        return $this -> render('VinFrontOfficeBundle:Static:conditions.html.twig');
+    }
 }
