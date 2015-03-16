@@ -16,8 +16,8 @@ class EmailService
         $message = \Swift_Message:: newInstance();
         $message ->setSubject('Nouveau message')
                  ->setTo('chhoulet@yahoo.fr')
-                 ->setFrom('#')
-                 ->setContent('$content');
+                 ->setFrom('chhoulet@yahoo.fr')
+                 ->setBody($content);
 
         $this -> mailer ->send($message);
     }

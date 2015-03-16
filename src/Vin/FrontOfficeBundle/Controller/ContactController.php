@@ -19,7 +19,7 @@ class ContactController extends Controller
 
         if($form -> isValid()){
             $data = $form ->getData();
-            $content = $data['content'];
+            $content = $data->getContent();
 
             $this -> get('vin_front_office.service.emailservice')->send($content);
             return $this -> redirect($this -> generateUrl('vin_front_office_homepage'));
