@@ -1,0 +1,4 @@
+services:
+#    vin_user.example:
+#        class: Vin\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
