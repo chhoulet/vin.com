@@ -156,6 +156,17 @@ class VinRepository extends EntityRepository
         return $query -> getResult();
     }
 
+    public function vinLessPrice()
+    {
+        $query = $this ->getEntityManager()->createQuery('
+            SELECT v
+            FROM VinFrontOfficeBundle:Vin v
+            ORDER BY v.price ASC')
+        ->setMaxResults(1);
+
+        return $query -> getSingleResult();
+    }
+
 
 
 

@@ -38,15 +38,14 @@
             <div class="row">
 
                 <div class="col-md-4">
-                    <h3>Liste des vins :</h3>
+                    <h3>Bonne affaire !</h3>
 
-                        {% for vin in vins %}
-                            {{ vin.nameWine }}<br>
-                            {{ vin.price }} € <br>
 
-                            <a href="{{ path('vin_front_office_basket_add',{id:vin.id}) }}" class="btn btn-primary">Ajouter au panier</a><br><br>
+                            {{ vinLessPrice.nameWine }}<br>
+                            {{ vinLessPrice.price }} € <br>
 
-                        {% endfor %}<br><br>
+                            <a href="{{ path('vin_front_office_basket_add',{id:vinLessPrice.id}) }}" class="btn btn-primary">Ajouter au panier</a><br><br>
+
 
                 </div>
 

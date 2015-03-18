@@ -17,6 +17,7 @@ class HomePageController extends Controller
     	$showRegions = $em -> getRepository('VinFrontOfficeBundle:Region') -> findAll();
     	$vinDuMois = $em -> getRepository('VinFrontOfficeBundle:Vin') -> vinDuMois();
     	$bordeaux = $em -> getRepository('VinFrontOfficeBundle:Vin') -> bordeaux();
+        $vinLessPrice = $em -> getRepository('VinFrontOfficeBundle:Vin')->vinLessPrice();
 
 // Selection des vins par prix :
         $formPrice = $this -> createForm(new PriceType());
@@ -65,6 +66,7 @@ class HomePageController extends Controller
         		  'vins'         => $vins,
         		  'vinDuMois'    => $vinDuMois,
         		  'bordeaux'     => $bordeaux,
+                  'vinLessPrice' => $vinLessPrice,
                   'formPrice'    => $formPrice->createView(),
                   'formColor'    => $formColor->createView(),
                   'formYear'     => $formYear->createView()
