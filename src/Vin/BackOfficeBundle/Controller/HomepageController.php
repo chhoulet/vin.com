@@ -21,19 +21,6 @@ class HomepageController extends Controller
         $countBordeaux = $em ->getRepository('VinFrontOfficeBundle:Vin')->countRegion('Bordeaux');
         $countMessages = $em ->getRepository('VinFrontOfficeBundle:Message')->countMessages();
 
-
-//      Fonction de selection des vins par etat des stocks :
-        $formStock = $this -> createForm(new stockType());
-
-        $formStock -> handleRequest($request);
-        if($formStock -> isValid())
-        {
-            $data = $formStock->getData();
-            $stock = $em -> getRepository('VinFrontOfficeBundle:Vin')->stockVin($data['stock']);
-
-            return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig', array('showVins'=>$stock));
-        }
-
         return $this -> render('VinBackOfficeBundle:Homepage:homepage.html.twig',
             array('nbAppellation'    => $nbAppellation,
                   'nbVins'           => $nbVins,
@@ -42,8 +29,7 @@ class HomepageController extends Controller
                   'nbPomerol'        => $nbPomerol,
                   'countBourgogne'   => $countBourgogne,
                   'countBordeaux'    => $countBordeaux,
-                  'countMessages'    => $countMessages,
-                  'formStock'        => $formStock ->createView()));
+                  'countMessages'    => $countMessages));
     }
 
 }
