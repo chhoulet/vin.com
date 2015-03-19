@@ -167,6 +167,20 @@ class VinRepository extends EntityRepository
         return $query -> getSingleResult();
     }
 
+    public function vinPrestige()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT v
+            FROM VinFrontOfficeBundle:Vin v
+            JOIN v.appellation a
+            WHERE a.nameAppellation LIKE :sauternes
+            ORDER BY v.price DESC')
+        ->setParameter('sauternes','%auternes%')
+        ->setMaxResults(1);
+
+        return $query ->getSingleResult();
+    }
+
 
 
 
