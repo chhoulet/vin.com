@@ -181,6 +181,21 @@ class VinRepository extends EntityRepository
         return $query ->getSingleResult();
     }
 
+    public function priceChampagne()
+    {
+        $query = $this ->getEntityManager()->createQuery('
+            SELECT COUNT(v.id) AS nb
+            FROM VinFrontOfficeBundle:Vin v
+            JOIN v.region r
+            WHERE r.nameRegion LIKE :champagne
+            AND v.price > 20')
+        ->setParameter('champagne','%hampagne%');
+
+        return $query -> getSingleScalarResult();
+    }
+
+
+
 
 
 

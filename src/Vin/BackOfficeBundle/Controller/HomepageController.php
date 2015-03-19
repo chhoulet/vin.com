@@ -20,6 +20,7 @@ class HomepageController extends Controller
         $countBourgogne = $em ->getRepository('VinFrontOfficeBundle:Vin')->countRegion('Bourgogne');
         $countBordeaux = $em ->getRepository('VinFrontOfficeBundle:Vin')->countRegion('Bordeaux');
         $countMessages = $em ->getRepository('VinFrontOfficeBundle:Message')->countMessages();
+        $priceChampagne = $em -> getRepository('VinFrontOfficeBundle:Vin')->priceChampagne();
 
         return $this -> render('VinBackOfficeBundle:Homepage:homepage.html.twig',
             array('nbAppellation'    => $nbAppellation,
@@ -29,7 +30,8 @@ class HomepageController extends Controller
                   'nbPomerol'        => $nbPomerol,
                   'countBourgogne'   => $countBourgogne,
                   'countBordeaux'    => $countBordeaux,
-                  'countMessages'    => $countMessages));
+                  'countMessages'    => $countMessages,
+                  'priceChampagne'   => $priceChampagne));
     }
 
 }
