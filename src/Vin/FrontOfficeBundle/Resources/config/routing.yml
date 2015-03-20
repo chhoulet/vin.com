@@ -22,6 +22,10 @@ vin_front_office_showOneVin:
     defaults: { _controller:VinFrontOfficeBundle:Vin:showOneVin}
     methods: [GET, POST]
 
+vin_front_office_showChampagne:
+    path:     /showChampagne
+    defaults: { _controller:VinFrontOfficeBundle:Vin:showChampagne}
+
 #Routes definissant la gestion de la page 'appellation'
 vin_front_office_showAppellation:
     path:     /showAppellation/Region/{slug}

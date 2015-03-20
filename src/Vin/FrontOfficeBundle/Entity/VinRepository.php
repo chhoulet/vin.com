@@ -188,10 +188,23 @@ class VinRepository extends EntityRepository
             FROM VinFrontOfficeBundle:Vin v
             JOIN v.region r
             WHERE r.nameRegion LIKE :champagne
-            AND v.price > 20')
+            AND v.price < 20')
         ->setParameter('champagne','%hampagne%');
 
         return $query -> getSingleScalarResult();
+    }
+
+    public function vinChampagne()
+    {
+        $query = $this -> getEntityManager()->createQuery('
+            SELECT v
+            FROM VinFrontOfficeBundle:Vin v
+            JOIN v.region r
+            WHERE r.regionName LIKE :champagne
+            AND v.price < 20')
+        ->setParameter('champagne','%hampagne%');
+
+        return $query -> getResult();
     }
 
 

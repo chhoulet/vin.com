@@ -49,4 +49,13 @@ class VinController extends Controller
         return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig',
             array('showVins'  => $showVinsAppellation));
     }
+
+    public function showChampagneAction()
+    {
+        $em = $this -> getDoctrine()->getManager();
+        $priceChampagne = $em -> getRepository('VinFrontOfficeBundle:Vin')->priceChampagne();
+
+        return $this -> render('VinFrontOfficeBundle:Vin:showVins.html.twig',
+            array('showVins' => $priceChampagne));
+    }
 }
