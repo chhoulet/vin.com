@@ -32,15 +32,17 @@
 
 	                    {% if is_granted('ROLE_USER') %}
                         	{{  include('@VinFrontOffice/Message/message.html.twig') }}<br><br>
+                        {% else %}
+                            <p>  Pas encore inscrit : <a href="{{ path('fos_user_security_login')}}" }}>Connectez-vous :</a> <p>
                     	{% endif %}
                     	
-                        {{  render(controller('VinFrontOfficeBundle:Message:showMessage',{id:showOneVin.id})) }}<br><br>
+                            {{  render(controller('VinFrontOfficeBundle:Message:showMessage',{id:showOneVin.id})) }}<br><br>
 
 	                </div>
 
 	            </div>
 
-	        </div>
+	        </div> 
 
 	    </div>
 
