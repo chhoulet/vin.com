@@ -18,7 +18,7 @@
 	            <div class="col-md-9">
 
 	                <div class="thumbnail">
-	                    <img class="img-responsive" src="{{ asset('public/images/' ~ showOneVin ~ '.jpg') }}" alt="{{ showOneVin.nameWine }}">
+	                    <img class="img-responsive" src="{{ asset('public/images/' ~ showOneVin.nameWine ~ '.jpg') }}" alt="{{ showOneVin.nameWine }}">
 	                    <div class="caption-full">
 	                        <h4 class="pull-right">{{ showOneVin.price }} €</h4>
 	                        <h4>{{ showOneVin.nameWine }} {{ showOneVin.title }} {% if showOneVin.domaine %} {{ showOneVin.domaine.nameDomaine }} {% endif %}<br>
@@ -30,7 +30,10 @@
                             <a href="{{ path('vin_front_office_basket_add',{id:showOneVin.id}) }}" class="btn btn-primary" style="margin-left:365px;">Ajouter au panier</a>
 	                    </div>
 
-                        {{  include('@VinFrontOffice/Message/message.html.twig') }}<br><br>
+	                    {% if is_granted('ROLE_USER') %}
+                        	{{  include('@VinFrontOffice/Message/message.html.twig') }}<br><br>
+                    	{% endif %}
+                    	
                         {{  render(controller('VinFrontOfficeBundle:Message:showMessage',{id:showOneVin.id})) }}<br><br>
 
 	                </div>
